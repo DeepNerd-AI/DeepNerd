@@ -17,6 +17,10 @@ import {
 } from "@/components/ui/table"
 import { cn } from "@/lib/utils"
 
+function generateId(text: string) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
 function parseCallout(text: string): { type: "note" | "warning"; body: string } | null {
   const noteMatch = text.match(/^> \[!NOTE\]\n([\s\S]*)$/)
   if (noteMatch) {
@@ -30,6 +34,9 @@ function parseCallout(text: string): { type: "note" | "warning"; body: string } 
 
   return null
 }
+
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism"
 
 function CodeBlock({ language, code }: { language: string; code: string }) {
   const [copied, setCopied] = useState(false)
@@ -55,9 +62,14 @@ function CodeBlock({ language, code }: { language: string; code: string }) {
           {copied ? "Copied" : "Copy"}
         </Button>
       </div>
-      <pre className="overflow-x-auto p-4 text-sm leading-6 text-foreground">
-        <code>{code}</code>
-      </pre>
+      <SyntaxHighlighter
+        language={language === "ts" ? "typescript" : language === "sh" ? "bash" : language || "text"}
+        style={vscDarkPlus}
+        customStyle={{ margin: 0, background: "transparent", fontSize: "0.875rem", padding: "1rem" }}
+        PreTag="div"
+      >
+        {String(code).replace(/\n$/, "")}
+      </SyntaxHighlighter>
     </div>
   )
 }
@@ -71,8 +83,8 @@ export function DocsMarkdownContent({ markdown }: { markdown: string }) {
         remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ className, ...props }) => <h1 className={cn("scroll-mt-24", className)} {...props} />,
-          h2: ({ className, ...props }) => <h2 className={cn("scroll-mt-24 border-b border-border pb-2", className)} {...props} />,
-          h3: ({ className, ...props }) => <h3 className={cn("scroll-mt-24", className)} {...props} />,
+          h2: ({ className, children, ...props }) => <h2 id={generateId(String(children))} className={cn("scroll-mt-24 border-b border-border pb-2 font-bold", className)} {...props}>{children}</h2>,
+          h3: ({ className, children, ...props }) => <h3 id={generateId(String(children))} className={cn("scroll-mt-24 font-bold", className)} {...props}>{children}</h3>,
           code: ({ className, children, ...props }) => {
             const language = className?.replace("language-", "") ?? ""
             const rawCode = String(children).replace(/\n$/, "")

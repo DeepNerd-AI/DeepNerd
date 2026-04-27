@@ -7,6 +7,7 @@ import { AnimatedNoise } from "@/components/animated-noise"
 import { BitmapChevron } from "@/components/bitmap-chevron"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Dither from "@/components/dither"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,15 +38,28 @@ export function HeroSection() {
     <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center pl-6 md:pl-12 pr-6 md:pr-12">
       <AnimatedNoise opacity={0.03} />
 
+      <div className="absolute inset-0 z-0 opacity-40">
+        <Dither
+          waveColor={[0.1, 0.1, 0.1]}
+          disableAnimation={false}
+          enableMouseInteraction={true}
+          mouseRadius={0.3}
+          colorNum={4}
+          waveAmplitude={0.3}
+          waveFrequency={3}
+          waveSpeed={0.05}
+        />
+      </div>
+
       {/* Left vertical labels */}
-      <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
+      <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-10">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
           DeepNerd
         </span>
       </div>
 
       {/* Main content */}
-      <div ref={contentRef} className="flex-1 w-full">
+      <div ref={contentRef} className="flex-1 w-full z-10 pointer-events-auto">
         <SplitFlapAudioProvider>
           <div className="relative">
             <SplitFlapText text="DeepNerd" speed={80} className="origin-left [transform:scaleY(0.66)]" />

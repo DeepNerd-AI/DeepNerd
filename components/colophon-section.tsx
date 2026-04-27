@@ -275,7 +275,7 @@ export function ColophonSection() {
         className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
       >
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-          © 2025 DeepNerd. All rights reserved.
+          © {new Date().getFullYear()} DeepNerd. All rights reserved.
         </p>
         <p className="font-mono text-[10px] text-muted-foreground">Engineering AI for developers. Every day.</p>
       </div>

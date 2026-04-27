@@ -36,14 +36,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-background">
+    <html lang="en" className="dark bg-background" suppressHydrationWarning>
       <body
-        className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
         <div className="noise-overlay" aria-hidden="true" />
-        <RootProvider search={{ enabled: false }} theme={{ enabled: false }}>
-          <SmoothScroll>{children}</SmoothScroll>
-        </RootProvider>
+        {children}
         <Analytics />
       </body>
     </html>
