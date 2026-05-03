@@ -3,10 +3,48 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "@/components/ui/typewriter";
-import Stepper from "@/components/ui/stepper";
 import { useRouter } from "next/navigation";
-import { Upload, ChevronRightIcon, ArrowRight, Loader2 } from "lucide-react";
+import { Upload, ChevronRightIcon, ArrowRight, Loader2, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+function ProgressStepper({ steps, currentStep }: { steps: string[]; currentStep: number }) {
+  return (
+    <div className="flex w-full items-center mb-12 px-2">
+      {steps.map((step, index) => {
+        const isActive = index === currentStep;
+        const isPast = index < currentStep;
+        return (
+          <div key={step} className="flex items-center flex-1 last:flex-none">
+            <div className="flex flex-col items-center gap-2 relative z-10 group">
+              <div
+                className={cn(
+                  "size-8 rounded-full border flex items-center justify-center text-xs font-mono transition-colors bg-black relative",
+                  isActive ? "border-white text-white" : isPast ? "border-zinc-500 text-zinc-300" : "border-zinc-800 text-zinc-700"
+                )}
+              >
+                {isPast ? <Check className="size-4" /> : index + 1}
+              </div>
+              <span className={cn(
+                "absolute top-10 text-[10px] whitespace-nowrap font-mono tracking-wider transition-colors",
+                isActive ? "text-white" : isPast ? "text-zinc-400" : "text-zinc-800"
+              )}>
+                {step}
+              </span>
+            </div>
+            {index < steps.length - 1 && (
+              <div className="h-[1px] flex-1 mx-2 bg-zinc-800 relative">
+                <div 
+                  className="absolute inset-y-0 left-0 bg-white transition-all duration-500" 
+                  style={{ width: isPast ? '100%' : '0%' }}
+                />
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 const STEPS = ["BASIC INFO", "PROFILE", "DISCOVERY", "SECURITY", "COMPLIANCE"];
 
@@ -124,7 +162,7 @@ export function OnboardingFlow() {
   return (
     <div className="flex h-screen w-screen flex-col bg-black text-white overflow-hidden">
       <div className="w-full max-w-xl mx-auto flex flex-col h-full px-6 py-12 pt-24 pb-8 relative">
-        <Stepper steps={STEPS} currentStep={currentStep} />
+        <ProgressStepper steps={STEPS} currentStep={currentStep} />
         
         <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar relative">
           <AnimatePresence mode="wait">
