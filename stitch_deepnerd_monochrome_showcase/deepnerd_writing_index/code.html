@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeepNerd - Writing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#393939",
+                        "tertiary-fixed": "#e3e2e2",
+                        "secondary-container": "#484949",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#636565",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "inverse-primary": "#5d5f5f",
+                        "on-surface-variant": "#c4c7c8",
+                        "tertiary": "#ffffff",
+                        "surface-container": "#1f1f1f",
+                        "on-surface": "#e2e2e2",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-tertiary-container": "#646464",
+                        "secondary-fixed": "#e3e2e2",
+                        "inverse-on-surface": "#303030",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary": "#303031",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-dim": "#131313",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "surface-variant": "#353535",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#2f3131",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-container": "#e2e2e2",
+                        "primary": "#ffffff",
+                        "surface-container-highest": "#353535",
+                        "on-secondary": "#2f3131",
+                        "on-background": "#e2e2e2",
+                        "on-secondary-container": "#b8b8b8",
+                        "surface-tint": "#c6c6c7",
+                        "inverse-surface": "#e2e2e2",
+                        "outline-variant": "#444748",
+                        "outline": "#8e9192",
+                        "surface": "#131313",
+                        "surface-container-low": "#1b1b1b",
+                        "tertiary-container": "#e3e2e2",
+                        "tertiary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-primary-fixed": "#1a1c1c",
+                        "background": "#131313",
+                        "secondary": "#c7c6c6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "margin": "32px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Space Grotesk"],
+                        "label-xs": ["Space Grotesk"],
+                        "h2": ["Space Grotesk"],
+                        "label-sm": ["Space Grotesk"],
+                        "body-md": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"],
+                        "h1": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-xs": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "300" }],
+                        "h2": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #080808; }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md antialiased pt-16">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 h-16 bg-black/90 backdrop-blur-md border-b border-[#333333]">
+<div class="flex items-center gap-8">
+<div class="text-lg font-bold tracking-tighter text-white">DeepNerd</div>
+<div class="hidden md:flex items-center gap-6 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+<a class="text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150 cursor-crosshair active:opacity-80" href="#">Products</a>
+<a class="text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150 cursor-crosshair active:opacity-80" href="#">Stack</a>
+<a class="text-white border-b border-white pb-1 hover:text-white hover:border-[#ffffff] transition-all duration-150 cursor-crosshair active:opacity-80" href="#">Docs</a>
+<a class="text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150 cursor-crosshair active:opacity-80" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-black font-['Space_Grotesk'] tracking-tight text-sm uppercase px-4 py-2 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-crosshair active:opacity-80">Connect</button>
+<span class="material-symbols-outlined text-white cursor-crosshair hover:text-white transition-colors duration-150" data-icon="terminal">terminal</span>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow container mx-auto px-6 py-margin max-w-5xl">
+<!-- Header -->
+<header class="mb-lg">
+<h1 class="font-h1 text-h1 text-primary mb-xs">Writing</h1>
+<p class="font-body-lg text-body-lg text-[#888888]">Engineering decisions. Opinions. Technical deep dives. No fluff.</p>
+</header>
+<!-- Filter Strip -->
+<div class="flex items-center gap-6 border-b border-[#333333] mb-xl pb-2">
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b border-white pb-2 -mb-[9px]">All</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-[#888888] hover:text-primary transition-colors duration-150 pb-2">Engineering</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-[#888888] hover:text-primary transition-colors duration-150 pb-2">Agents</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-[#888888] hover:text-primary transition-colors duration-150 pb-2">Philosophy</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-[#888888] hover:text-primary transition-colors duration-150 pb-2">Releases</button>
+</div>
+<!-- Featured Post -->
+<article class="bg-[#1a1a1a] border border-[#2a2a2a] p-lg mb-xl hover:border-white transition-colors duration-150 group cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<div class="flex flex-col gap-4 relative z-10">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs border border-[#2a2a2a] bg-[#131313] text-[#888888] px-2 py-1 rounded-sm uppercase tracking-widest">Engineering</span>
+<span class="font-mono text-label-xs text-[#888888]">2024.10.12</span>
+</div>
+<h2 class="font-h2 text-h2 text-primary group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-300">Why We Chose Rust for the DeepNerd Core</h2>
+<p class="font-body-md text-body-md text-[#888888] max-w-3xl">A deep dive into memory safety, zero-cost abstractions, and why performance is the only metric that matters for autonomous agents.</p>
+<div class="flex items-center gap-2 mt-4 text-primary font-label-sm text-label-sm uppercase tracking-widest group-hover:gap-4 transition-all duration-300">
+<span>Read More</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Post Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Post 1 -->
+<article class="bg-[#1a1a1a] border border-[#2a2a2a] p-lg hover:border-white transition-colors duration-150 group cursor-pointer flex flex-col justify-between min-h-[200px]">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-xs text-label-xs border border-[#2a2a2a] bg-[#131313] text-[#888888] px-2 py-1 rounded-sm uppercase tracking-widest">Agents</span>
+<span class="font-mono text-label-xs text-[#888888]">2024.10.05</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-300">Agents as First-Class Citizens</h3>
+</div>
+<div class="flex items-center gap-2 mt-md text-[#888888] group-hover:text-primary font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-300">
+<span>Read</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="east">east</span>
+</div>
+</article>
+<!-- Post 2 -->
+<article class="bg-[#1a1a1a] border border-[#2a2a2a] p-lg hover:border-white transition-colors duration-150 group cursor-pointer flex flex-col justify-between min-h-[200px]">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-xs text-label-xs border border-[#2a2a2a] bg-[#131313] text-[#888888] px-2 py-1 rounded-sm uppercase tracking-widest">Philosophy</span>
+<span class="font-mono text-label-xs text-[#888888]">2024.09.28</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-300">The Death of the GUI</h3>
+</div>
+<div class="flex items-center gap-2 mt-md text-[#888888] group-hover:text-primary font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-300">
+<span>Read</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="east">east</span>
+</div>
+</article>
+<!-- Post 3 -->
+<article class="bg-[#1a1a1a] border border-[#2a2a2a] p-lg hover:border-white transition-colors duration-150 group cursor-pointer flex flex-col justify-between min-h-[200px]">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-xs text-label-xs border border-[#2a2a2a] bg-[#131313] text-[#888888] px-2 py-1 rounded-sm uppercase tracking-widest">Engineering</span>
+<span class="font-mono text-label-xs text-[#888888]">2024.09.15</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-300">Sub-10ms Latency in the Browser</h3>
+</div>
+<div class="flex items-center gap-2 mt-md text-[#888888] group-hover:text-primary font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-300">
+<span>Read</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="east">east</span>
+</div>
+</article>
+<!-- Post 4 -->
+<article class="bg-[#1a1a1a] border border-[#2a2a2a] p-lg hover:border-white transition-colors duration-150 group cursor-pointer flex flex-col justify-between min-h-[200px]">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-xs text-label-xs border border-[#2a2a2a] bg-[#131313] text-[#888888] px-2 py-1 rounded-sm uppercase tracking-widest">Releases</span>
+<span class="font-mono text-label-xs text-[#888888]">2024.09.01</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-300">v1.2.0: The Automation Update</h3>
+</div>
+<div class="flex items-center gap-2 mt-md text-[#888888] group-hover:text-primary font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-300">
+<span>Read</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="east">east</span>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 bg-black border-t border-[#333333] mt-auto">
+<div class="text-white font-black font-mono text-[10px] tracking-widest uppercase">
+            © 2024 DEEPNERD_SYSTEMS
+        </div>
+<div class="flex items-center gap-6 font-mono text-[10px] tracking-widest uppercase">
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out" href="#">Changelog</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out" href="#">Status</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out" href="#">Privacy</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out" href="#">Terminal_Access</a>
+</div>
+</footer>
+</body></html>

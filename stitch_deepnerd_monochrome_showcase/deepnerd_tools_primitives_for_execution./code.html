@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeepNerd Tools &amp; Primitives</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#303030",
+                      "secondary-fixed": "#e3e2e2",
+                      "on-surface": "#e2e2e2",
+                      "on-secondary-fixed-variant": "#464747",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#e2e2e2",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-fixed": "#1a1c1c",
+                      "primary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#464747",
+                      "on-surface-variant": "#c4c7c8",
+                      "on-secondary-container": "#b8b8b8",
+                      "surface-container-low": "#1b1b1b",
+                      "on-error": "#690005",
+                      "surface-variant": "#353535",
+                      "tertiary-fixed-dim": "#c7c6c6",
+                      "outline-variant": "#444748",
+                      "on-tertiary-container": "#646464",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "on-secondary": "#2f3131",
+                      "surface-container": "#1f1f1f",
+                      "tertiary-fixed": "#e3e2e2",
+                      "secondary": "#c7c6c6",
+                      "on-tertiary": "#303031",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#454747",
+                      "on-background": "#e2e2e2",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "primary-container": "#e2e2e2",
+                      "primary-fixed-dim": "#c6c6c7",
+                      "surface": "#131313",
+                      "surface-dim": "#131313",
+                      "tertiary": "#ffffff",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#c6c6c7",
+                      "surface-container-highest": "#353535",
+                      "inverse-primary": "#5d5f5f",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-bright": "#393939",
+                      "on-primary": "#2f3131",
+                      "inverse-surface": "#e2e2e2",
+                      "on-primary-container": "#636565",
+                      "secondary-container": "#484949",
+                      "outline": "#8e9192",
+                      "tertiary-container": "#e3e2e2",
+                      "background": "#131313"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "margin": "32px",
+                      "gutter": "24px",
+                      "xl": "48px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "h2": [
+                              "Space Grotesk"
+                      ],
+                      "label-xs": [
+                              "Space Grotesk"
+                      ],
+                      "h3": [
+                              "Space Grotesk"
+                      ],
+                      "label-sm": [
+                              "Space Grotesk"
+                      ],
+                      "body-md": [
+                              "Space Grotesk"
+                      ],
+                      "h1": [
+                              "Space Grotesk"
+                      ],
+                      "body-lg": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "h2": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-xs": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "h3": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-[#080808] text-primary font-body-md antialiased min-h-screen flex flex-col selection:bg-white selection:text-black">
+<!-- TopNavBar Component -->
+<nav class="bg-black text-white font-['Space_Grotesk'] antialiased tracking-tight sticky w-full top-0 border-b border-[#333333] z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-xl">
+<a class="text-lg font-bold tracking-tighter text-white uppercase flex items-center gap-sm" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                    DeepNerd
+                </a>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-white border-b border-white pb-4 mb-[-17px] hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80 transition-opacity" href="#">Tools</a>
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80 transition-opacity" href="#">Primitives</a>
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80 transition-opacity" href="#">Agents</a>
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80 transition-opacity" href="#">Docs</a>
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80 transition-opacity" href="#">API</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center gap-sm">
+<button class="text-zinc-500 hover:text-white transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+</div>
+<button class="bg-white text-black px-md py-sm font-label-sm font-bold uppercase tracking-wider hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150">
+                    Deploy
+                </button>
+</div>
+</div>
+</nav>
+<main class="flex-grow flex flex-col w-full max-w-[1440px] mx-auto">
+<!-- Hero Section -->
+<section class="w-full px-6 py-[120px] md:py-[160px] flex flex-col items-start border-b border-[#2a2a2a]">
+<div class="max-w-3xl">
+<h1 class="font-h1 text-h1 text-white mb-lg">Tools built for execution.<br/>Not extraction.</h1>
+<p class="font-body-lg text-body-lg text-[#888888] max-w-2xl">Not another MCP wrapper. Primitives that agents use to act — not just read.</p>
+</div>
+</section>
+<!-- Tools Grid Section -->
+<section class="w-full px-6 py-xl md:py-[80px]">
+<!-- Tabs -->
+<div class="flex flex-wrap gap-md mb-xl border-b border-[#2a2a2a] pb-xs">
+<button class="font-label-sm text-label-sm text-white border-b-2 border-white pb-sm px-xs">All</button>
+<button class="font-label-sm text-label-sm text-[#888888] hover:text-white pb-sm px-xs transition-colors">Agent Tools</button>
+<button class="font-label-sm text-label-sm text-[#888888] hover:text-white pb-sm px-xs transition-colors">Developer Tools</button>
+<button class="font-label-sm text-label-sm text-[#888888] hover:text-white pb-sm px-xs transition-colors">API Primitives</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">AGENT_EXEC</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-white px-2 py-1 font-mono text-[10px] uppercase">Stable</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">DeepShell</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Terminal access with safety sandbox.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">API_PRIM</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-white px-2 py-1 font-mono text-[10px] uppercase">Stable</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">Native-FS</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Direct, high-speed file system operations.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">DEV_TOOL</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-[#aaaaaa] px-2 py-1 font-mono text-[10px] uppercase">Beta</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">V-GPU</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Virtualized GPU compute for agent inference.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">API_PRIM</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-white px-2 py-1 font-mono text-[10px] uppercase">Stable</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">Auth-Proxy</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Stateless agent authentication.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">AGENT_EXEC</span>
+<span class="bg-[#1a1a1a] border border-[#333333] border-dashed text-[#666666] px-2 py-1 font-mono text-[10px] uppercase">Soon</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm text-opacity-50">Dom-Navigator</h3>
+<p class="font-body-md text-body-md text-[#555555] flex-grow">Machine-readable browser automation.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">DEV_TOOL</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-[#aaaaaa] px-2 py-1 font-mono text-[10px] uppercase">Beta</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">Kernel-Hook</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Low-level system event monitoring.</p>
+</div>
+<!-- Card 7 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">API_PRIM</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-white px-2 py-1 font-mono text-[10px] uppercase">Stable</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">Secret-Safe</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Encrypted key management for agents.</p>
+</div>
+<!-- Card 8 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">DEV_TOOL</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-white px-2 py-1 font-mono text-[10px] uppercase">Stable</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">Log-Stream</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Real-time agent execution telemetry.</p>
+</div>
+<!-- Card 9 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">API_PRIM</span>
+<span class="bg-[#1a1a1a] border border-[#333333] text-[#aaaaaa] px-2 py-1 font-mono text-[10px] uppercase">Beta</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm">Net-Stack</h3>
+<p class="font-body-md text-body-md text-[#888888] flex-grow">Agent-native TCP/UDP primitives.</p>
+</div>
+<!-- Card 10 -->
+<div class="bg-[#111111] border border-[#2a2a2a] p-lg hover:border-white hover:bg-[#151515] transition-all duration-150 group cursor-pointer flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#aaaaaa] transition-colors">AGENT_EXEC</span>
+<span class="bg-[#1a1a1a] border border-[#333333] border-dashed text-[#666666] px-2 py-1 font-mono text-[10px] uppercase">Soon</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-sm text-opacity-50">C-Runner</h3>
+<p class="font-body-md text-body-md text-[#555555] flex-grow">Compiled-speed agent task execution.</p>
+</div>
+</div>
+</section>
+<!-- Philosophy Strip -->
+<section class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#0a0a0a] border-y border-[#2a2a2a] py-[100px] px-6">
+<div class="max-w-[1440px] mx-auto flex flex-col items-center text-center">
+<h2 class="font-h2 text-h2 text-white max-w-4xl mb-lg leading-tight">
+                    "We don't add more MCPs.<br/>We make them unnecessary."
+                </h2>
+<p class="font-body-md text-body-md text-[#888888] max-w-2xl">
+                    The gap between reading data and taking action is where reliability fails. Our primitives are built for agents to own the execution layer, not just extract information from it.
+                </p>
+</div>
+</section>
+<!-- SDK Section -->
+<section class="w-full px-6 py-[100px] flex flex-col md:flex-row gap-xl items-center border-b border-[#2a2a2a]">
+<div class="w-full md:w-1/2 flex flex-col items-start">
+<h2 class="font-h2 text-h2 text-white mb-md">Integrate in seconds.</h2>
+<p class="font-body-md text-body-md text-[#888888] mb-lg">Zero configuration. Direct access to high-performance system primitives from your agent loops.</p>
+<button class="bg-transparent border border-[#333333] text-white px-lg py-sm font-label-sm font-bold uppercase tracking-wider hover:border-white transition-colors duration-150">
+                    View Full Docs
+                </button>
+</div>
+<div class="w-full md:w-1/2 bg-[#050505] border border-[#2a2a2a] p-lg font-mono text-sm overflow-x-auto text-[#aaaaaa]">
+<pre class="leading-relaxed"><span class="text-[#555555]">import</span> { DeepNerd } <span class="text-[#555555]">from</span> <span class="text-white">'@deepnerd/core'</span>;
+
+<span class="text-[#555555]">const</span> shell = <span class="text-[#555555]">await</span> DeepNerd.tool(<span class="text-white">'deepshell'</span>);
+<span class="text-[#555555]">await</span> shell.execute(<span class="text-white">'cargo build'</span>);
+</pre>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-black text-white font-['Space_Grotesk'] uppercase text-[10px] tracking-[0.2em] w-full border-t border-[#333333] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-md w-full px-8 py-12 max-w-[1440px] mx-auto">
+<div class="text-white font-black">
+                © 2024 DEEPNERD. OPTIMIZED FOR AGENTS.
+            </div>
+<div class="flex items-center gap-lg">
+<a class="text-zinc-600 hover:text-white transition-colors duration-150" href="#">GitHub</a>
+<a class="text-zinc-600 hover:text-white transition-colors duration-150" href="#">Status</a>
+<a class="text-zinc-600 hover:text-white transition-colors duration-150" href="#">Security</a>
+<a class="text-zinc-600 hover:text-white transition-colors duration-150" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

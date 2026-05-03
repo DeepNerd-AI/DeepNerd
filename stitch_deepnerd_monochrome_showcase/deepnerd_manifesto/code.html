@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeepNerd Manifesto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#464747",
+                    "inverse-on-surface": "#303030",
+                    "secondary": "#c7c6c6",
+                    "primary-fixed": "#e2e2e2",
+                    "secondary-fixed": "#e3e2e2",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "surface-container-low": "#1b1b1b",
+                    "inverse-surface": "#e2e2e2",
+                    "on-surface-variant": "#c4c7c8",
+                    "inverse-primary": "#5d5f5f",
+                    "secondary-container": "#484949",
+                    "on-primary-fixed-variant": "#454747",
+                    "tertiary-fixed": "#e3e2e2",
+                    "surface": "#131313",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "on-surface": "#e2e2e2",
+                    "background": "#131313",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-container": "#e2e2e2",
+                    "surface-container": "#1f1f1f",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#636565",
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-background": "#e2e2e2",
+                    "on-primary": "#2f3131",
+                    "on-secondary-fixed-variant": "#464747",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed-dim": "#c7c6c6",
+                    "tertiary": "#ffffff",
+                    "on-tertiary-container": "#646464",
+                    "outline": "#8e9192",
+                    "surface-container-highest": "#353535",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-variant": "#353535",
+                    "surface-container-high": "#2a2a2a",
+                    "on-secondary-container": "#b8b8b8",
+                    "surface-tint": "#c6c6c7",
+                    "tertiary-container": "#e3e2e2",
+                    "surface-dim": "#131313",
+                    "surface-bright": "#393939",
+                    "primary": "#ffffff",
+                    "on-secondary": "#2f3131",
+                    "outline-variant": "#444748",
+                    "on-tertiary": "#303031",
+                    "on-primary-fixed": "#1a1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "margin": "32px",
+                    "lg": "24px",
+                    "unit": "4px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "h1": ["Space Grotesk"],
+                    "label-xs": ["Space Grotesk"],
+                    "label-sm": ["Space Grotesk"],
+                    "body-lg": ["Space Grotesk"],
+                    "h3": ["Space Grotesk"],
+                    "h2": ["Space Grotesk"],
+                    "body-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-xs": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "300"}],
+                    "label-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "300"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-black font-['Space_Grotesk'] antialiased tracking-tight sticky w-full top-0 border-b border-[#333333] z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+<div class="text-lg font-bold tracking-tighter text-white uppercase">DeepNerd</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80" href="#">Tools</a>
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80" href="#">Primitives</a>
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80" href="#">Agents</a>
+<a class="text-white border-b border-white pb-4 mb-[-17px] hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80" href="#">Docs</a>
+<a class="text-zinc-500 font-medium pb-4 hover:text-white transition-colors duration-150 cursor-pointer active:opacity-80" href="#">API</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-white text-black px-4 py-2 font-bold hover:bg-zinc-200 transition-colors">Deploy</button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-zinc-500 hover:text-white cursor-pointer transition-colors" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-zinc-500 hover:text-white cursor-pointer transition-colors" data-icon="settings">settings</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center w-full">
+<!-- Hero Section -->
+<section class="w-full max-w-[960px] px-6 py-32 md:py-48 flex flex-col justify-center">
+<h1 class="text-white text-[64px] md:text-[96px] leading-[1.1] font-bold tracking-tighter mb-8">
+                We think the tools are broken.<br/>
+                So we rebuilt them.
+            </h1>
+</section>
+<!-- Manifesto Section -->
+<section class="w-full max-w-[800px] px-6 py-24 flex flex-col gap-16">
+<div class="flex flex-col gap-6">
+<h2 class="text-white text-[32px] md:text-[40px] font-bold leading-tight tracking-tight">Speed is not a feature. It's a requirement.</h2>
+<p class="text-[#888888] text-[18px] md:text-[20px] leading-relaxed font-light">
+                    In a system designed for high-throughput automated agents, milliseconds compound into minutes. We stripped the abstraction layers, removed the cruft, and engineered every path for zero-latency execution. If it isn't instantaneous, it's broken.
+                </p>
+</div>
+<hr class="border-[#333333] w-full"/>
+<div class="flex flex-col gap-6">
+<h2 class="text-white text-[32px] md:text-[40px] font-bold leading-tight tracking-tight">Agents don't need beautiful UIs. They need interfaces they can operate.</h2>
+<p class="text-[#888888] text-[18px] md:text-[20px] leading-relaxed font-light">
+                    The era of human-only design is over. Our interfaces are structurally deterministic, providing APIs that look like UIs and UIs that behave like APIs. We design for the machine first, ensuring every interaction is programmable, predictable, and parseable.
+                </p>
+</div>
+<hr class="border-[#333333] w-full"/>
+<div class="flex flex-col gap-6">
+<h2 class="text-white text-[32px] md:text-[40px] font-bold leading-tight tracking-tight">We chose Rust because we're serious.</h2>
+<p class="text-[#888888] text-[18px] md:text-[20px] leading-relaxed font-light">
+                    Memory safety, fearless concurrency, and bare-metal performance aren't just buzzwords. They are the foundational requirements for building resilient infrastructure that won't collapse under the weight of autonomous swarms. We don't compromise on the core.
+                </p>
+</div>
+<hr class="border-[#333333] w-full"/>
+<div class="flex flex-col gap-6">
+<h2 class="text-white text-[32px] md:text-[40px] font-bold leading-tight tracking-tight">AI-native doesn't mean AI-added.</h2>
+<p class="text-[#888888] text-[18px] md:text-[20px] leading-relaxed font-light">
+                    Wrapping an LLM in a text box is a toy. We build primitives where intelligence is woven into the execution engine. Our systems anticipate context, structure unstructured intent, and execute complex workflows without requiring a chat interface as a crutch.
+                </p>
+</div>
+<hr class="border-[#333333] w-full"/>
+</section>
+<!-- What We Build Section -->
+<section class="w-full max-w-[960px] px-6 py-32 flex flex-col gap-12">
+<h3 class="text-[#555555] font-['Space_Grotesk'] tracking-[0.2em] uppercase text-sm mb-4">Architecture</h3>
+<ul class="flex flex-col gap-8">
+<li class="flex items-baseline gap-4 border-b border-[#111111] pb-8">
+<span class="text-white text-[48px] md:text-[64px] font-bold tracking-tighter">IDE</span>
+<span class="text-[#666666] font-mono text-lg md:text-xl">[EDITOR]</span>
+</li>
+<li class="flex items-baseline gap-4 border-b border-[#111111] pb-8">
+<span class="text-white text-[48px] md:text-[64px] font-bold tracking-tighter">Agents</span>
+<span class="text-[#666666] font-mono text-lg md:text-xl">[OPERATORS]</span>
+</li>
+<li class="flex items-baseline gap-4 border-b border-[#111111] pb-8">
+<span class="text-white text-[48px] md:text-[64px] font-bold tracking-tighter">Automation</span>
+<span class="text-[#666666] font-mono text-lg md:text-xl">[WORKFLOW]</span>
+</li>
+<li class="flex items-baseline gap-4 border-b border-[#111111] pb-8">
+<span class="text-white text-[48px] md:text-[64px] font-bold tracking-tighter">Tools</span>
+<span class="text-[#666666] font-mono text-lg md:text-xl">[UTILITIES]</span>
+</li>
+<li class="flex items-baseline gap-4 border-b border-[#111111] pb-8">
+<span class="text-white text-[48px] md:text-[64px] font-bold tracking-tighter">Model</span>
+<span class="text-[#666666] font-mono text-lg md:text-xl">[ENGINE]</span>
+</li>
+</ul>
+</section>
+<!-- Closing Section -->
+<section class="w-full px-6 py-48 flex justify-center items-center">
+<h2 class="text-white text-[48px] md:text-[80px] font-black tracking-tighter text-center leading-none">
+                Deep by design.<br/>
+                Nerd is not an insult.
+            </h2>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-black font-['Space_Grotesk'] uppercase text-[10px] tracking-[0.2em] w-full bottom-0 border-t border-[#333333]">
+<div class="flex justify-between items-center w-full px-8 py-12 max-w-[1440px] mx-auto">
+<div class="text-white font-black">
+                © 2024 DEEPNERD. OPTIMIZED FOR AGENTS.
+            </div>
+<nav class="flex gap-6">
+<a class="text-zinc-600 hover:text-white transition-all duration-150" href="#">GitHub</a>
+<a class="text-zinc-600 hover:text-white transition-all duration-150" href="#">Status</a>
+<a class="text-zinc-600 hover:text-white transition-all duration-150" href="#">Security</a>
+<a class="text-zinc-600 hover:text-white transition-all duration-150" href="#">Terms</a>
+</nav>
+</div>
+</footer>
+</body></html>

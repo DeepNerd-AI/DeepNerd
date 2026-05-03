@@ -367,7 +367,7 @@ export const DeepNerdFooter = () => {
   return (
     <footer id="footer" className="w-full pb-0 bg-black pt-12 border-t border-zinc-800">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between px-6 md:px-12 max-w-[1440px] mx-auto gap-12">
-        <div className="flex flex-col items-start justify-start gap-y-5 max-w-sm">
+        <div className="flex flex-col items-start justify-start gap-y-5 w-full md:w-[384px] shrink-0">
           <Link href="/" className="flex items-center gap-2 group">
             <Icons.logo className="size-6 transition-transform group-hover:scale-110" />
             <p className="text-xl font-bold tracking-widest uppercase text-white font-mono">DeepNerd</p>

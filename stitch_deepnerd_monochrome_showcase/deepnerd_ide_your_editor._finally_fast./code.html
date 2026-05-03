@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeepNerd IDE | Your editor. Finally fast.</title>
+<!-- Google Fonts: Space Grotesk & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config Injection -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#454747",
+                        "inverse-on-surface": "#303030",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1b1b1b",
+                        "on-primary-container": "#636565",
+                        "on-primary": "#2f3131",
+                        "surface-dim": "#131313",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "outline": "#8e9192",
+                        "tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "on-tertiary-container": "#646464",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary": "#ffffff",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed": "#1a1c1c",
+                        "inverse-surface": "#e2e2e2",
+                        "on-secondary-container": "#b8b8b8",
+                        "surface-bright": "#393939",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "background": "#131313",
+                        "on-secondary": "#2f3131",
+                        "tertiary-fixed": "#e3e2e2",
+                        "on-tertiary": "#303031",
+                        "on-surface": "#e2e2e2",
+                        "on-error": "#690005",
+                        "secondary-container": "#484949",
+                        "tertiary-container": "#e3e2e2",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container": "#1f1f1f",
+                        "on-background": "#e2e2e2",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#444748",
+                        "secondary": "#c7c6c6",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface": "#131313",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-tint": "#c6c6c7",
+                        "primary-container": "#e2e2e2",
+                        "surface-variant": "#353535",
+                        "surface-container-lowest": "#0e0e0e"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "md": "16px",
+                        "margin": "32px",
+                        "xl": "48px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    fontFamily: {
+                        "label-xs": ["Space Grotesk"],
+                        "h3": ["Space Grotesk"],
+                        "h2": ["Space Grotesk"],
+                        "body-md": ["Space Grotesk"],
+                        "label-sm": ["Space Grotesk"],
+                        "h1": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"]
+                    },
+                    fontSize: {
+                        "label-xs": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "300" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "300" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base typography utility to ensure space grotesk mapping is tight */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Monochrome syntax highlighting simulation */
+        .token-keyword { color: #ffffff; font-weight: bold; }
+        .token-string { color: #aaaaaa; }
+        .token-function { color: #dddddd; }
+        .token-comment { color: #555555; font-style: italic; }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen selection:bg-primary selection:text-surface-container-lowest">
+<!-- JSON Component: TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 h-16 bg-black/90 backdrop-blur-md border-b border-[#333333]">
+<div class="flex items-center gap-8">
+<div class="text-lg font-bold tracking-tighter text-white uppercase">DeepNerd</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-white border-b border-white pb-1 cursor-crosshair active:opacity-80" href="#">Products</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150 border-b border-transparent pb-1 cursor-crosshair active:opacity-80" href="#">Stack</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150 border-b border-transparent pb-1 cursor-crosshair active:opacity-80" href="#">Docs</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150 border-b border-transparent pb-1 cursor-crosshair active:opacity-80" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white cursor-crosshair hover:opacity-80 transition-opacity">terminal</span>
+<button class="bg-primary text-on-primary font-['Space_Grotesk'] tracking-tight text-sm uppercase px-4 py-2 hover:bg-white/90 transition-colors cursor-crosshair">Connect</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-24 pb-16">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-32 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col items-start gap-8">
+<div class="inline-flex items-center px-3 py-1 bg-surface-container-high border border-[#333333] font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-primary mr-2"></span> Beta v0.9.4 Live
+                </div>
+<h1 class="font-h1 text-h1 text-primary leading-tight">
+                    Your editor.<br/>Finally fast.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                    Built in Rust. Not forked. Not wrapped. Ground up. A void-like environment engineered for absolute focus and zero latency.
+                </p>
+<div class="flex flex-wrap items-center gap-4 mt-4">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 uppercase tracking-wider hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] transition-all duration-150">
+                        Download Beta
+                    </button>
+<button class="bg-transparent border border-[#333333] text-primary font-label-sm text-label-sm px-6 py-3 uppercase tracking-wider hover:border-primary transition-all duration-150">
+                        View Benchmarks
+                    </button>
+</div>
+</div>
+<!-- Fake IDE Screenshot (CSS Built) -->
+<div class="relative w-full aspect-[4/3] bg-[#050505] border border-[#333333] rounded-DEFAULT overflow-hidden shadow-2xl flex flex-col group">
+<!-- Mac-style Top Bar -->
+<div class="h-10 bg-[#0a0a0a] border-b border-[#333333] flex items-center px-4 justify-between">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full border border-[#333333]"></div>
+<div class="w-3 h-3 rounded-full border border-[#333333]"></div>
+<div class="w-3 h-3 rounded-full border border-[#333333]"></div>
+</div>
+<div class="font-mono text-[10px] text-[#555555]">src/core/engine.rs — DeepNerd</div>
+<div class="w-12"></div> <!-- Spacer for center alignment -->
+</div>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar -->
+<div class="w-48 bg-[#080808] border-r border-[#333333] hidden sm:flex flex-col p-4">
+<div class="font-label-xs text-label-xs text-[#555555] uppercase tracking-widest mb-4">Explorer</div>
+<div class="font-mono text-xs text-[#888888] flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-[14px]">folder_open</span> src</div>
+<div class="flex items-center gap-2 pl-4 text-primary"><span class="material-symbols-outlined text-[14px]">folder</span> core</div>
+<div class="flex items-center gap-2 pl-8 text-primary bg-[#111111] py-1 -ml-4 pl-12 border-l border-primary"><span class="material-symbols-outlined text-[14px]">description</span> engine.rs</div>
+<div class="flex items-center gap-2 pl-8"><span class="material-symbols-outlined text-[14px]">description</span> memory.rs</div>
+<div class="flex items-center gap-2 pl-4"><span class="material-symbols-outlined text-[14px]">folder</span> parser</div>
+<div class="flex items-center gap-2 pl-4"><span class="material-symbols-outlined text-[14px]">folder</span> ui</div>
+<div class="flex items-center gap-2 mt-4"><span class="material-symbols-outlined text-[14px]">description</span> Cargo.toml</div>
+</div>
+</div>
+<!-- Editor Area -->
+<div class="flex-1 bg-[#050505] p-6 overflow-hidden relative">
+<div class="font-mono text-sm leading-relaxed whitespace-pre font-light">
+<span class="token-comment">// Core execution engine - zero allocations</span>
+<span class="token-keyword">pub fn</span> <span class="token-function">execute_buffer_mutation</span>(
+    ctx: &amp;<span class="token-keyword">mut</span> EditorContext,
+    mutation: BufferMutation,
+) -&gt; Result&lt;(), EngineError&gt; {
+    <span class="token-keyword">let</span> start_time = Instant::now();
+    
+    <span class="token-keyword">match</span> mutation {
+        BufferMutation::Insert { pos, text } =&gt; {
+            ctx.buffer.<span class="token-function">insert</span>(pos, &amp;text);
+            ctx.indexer.<span class="token-function">notify_change</span>(pos, text.len());
+        },
+        BufferMutation::Delete { range } =&gt; {
+            ctx.buffer.<span class="token-function">delete</span>(range);
+        }
+    }
+
+    <span class="token-comment">// Enforce sub-10ms response guarantee</span>
+<span class="token-keyword">if</span> start_time.elapsed().as_millis() &gt; <span class="token-string">10</span> {
+        tracing::<span class="token-function">warn!</span>(<span class="token-string">"Frame drop detected"</span>);
+    }
+
+    <span class="token-keyword">Ok</span>(())
+}
+                        </div>
+<!-- Blinking cursor -->
+<div class="absolute w-[2px] h-4 bg-primary top-[11.2rem] left-[5.5rem] animate-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benchmarks Section -->
+<section class="border-t border-[#111111] bg-surface-container-low py-24 px-6">
+<div class="max-w-4xl mx-auto">
+<div class="mb-16">
+<h2 class="font-h2 text-h2 text-primary mb-4">VSCode is slow. We fixed it.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Technical performance metrics measured on Apple M3 Max, 64GB RAM.</p>
+</div>
+<div class="border border-[#333333] bg-[#0a0a0a]">
+<!-- Header -->
+<div class="grid grid-cols-3 border-b border-[#333333] p-4 bg-[#111111]">
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">Metric</div>
+<div class="font-label-xs text-label-xs text-[#555555] uppercase tracking-widest text-right">Legacy IDE</div>
+<div class="font-label-xs text-label-xs text-primary uppercase tracking-widest text-right">DeepNerd</div>
+</div>
+<!-- Rows -->
+<div class="grid grid-cols-3 border-b border-[#222222] p-4 hover:bg-[#111111] transition-colors">
+<div class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">timer</span> Cold Start</div>
+<div class="font-mono text-[#555555] text-right line-through">2.4s</div>
+<div class="font-mono text-primary font-bold text-right">0.08s</div>
+</div>
+<div class="grid grid-cols-3 border-b border-[#222222] p-4 hover:bg-[#111111] transition-colors">
+<div class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">memory</span> Idle Memory</div>
+<div class="font-mono text-[#555555] text-right line-through">1.2GB</div>
+<div class="font-mono text-primary font-bold text-right">42MB</div>
+</div>
+<div class="grid grid-cols-3 border-b border-[#222222] p-4 hover:bg-[#111111] transition-colors">
+<div class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">search</span> File Indexing (10k files)</div>
+<div class="font-mono text-[#555555] text-right">4.5s</div>
+<div class="font-mono text-primary font-bold text-right">0.3s</div>
+</div>
+<div class="grid grid-cols-3 p-4 hover:bg-[#111111] transition-colors">
+<div class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">extension</span> Plugin Latency</div>
+<div class="font-mono text-[#555555] text-right">Variable</div>
+<div class="font-mono text-primary font-bold text-right">&lt;1ms</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid Section -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<h2 class="font-h3 text-h3 text-primary mb-12 border-l-2 border-primary pl-4 uppercase tracking-widest">Architecture Highlights</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+<!-- Feature Card -->
+<div class="bg-[#0a0a0a] border border-[#222222] p-8 hover:border-primary transition-colors duration-150 group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">code_blocks</span>
+<h3 class="font-h3 text-h3 text-primary mb-3">Rust Core</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Built entirely in Rust for memory safety and zero-cost abstractions.</p>
+</div>
+<!-- Feature Card -->
+<div class="bg-[#0a0a0a] border border-[#222222] p-8 hover:border-primary transition-colors duration-150 group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">bolt</span>
+<h3 class="font-h3 text-h3 text-primary mb-3">Zero Electron</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Custom GPU-accelerated renderer. No heavy browser engines.</p>
+</div>
+<!-- Feature Card -->
+<div class="bg-[#0a0a0a] border border-[#222222] p-8 hover:border-primary transition-colors duration-150 group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">speed</span>
+<h3 class="font-h3 text-h3 text-primary mb-3">Sub-10ms Response</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Guaranteed frame rates. Keystrokes register instantly.</p>
+</div>
+<!-- Feature Card -->
+<div class="bg-[#0a0a0a] border border-[#222222] p-8 hover:border-primary transition-colors duration-150 group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">psychology</span>
+<h3 class="font-h3 text-h3 text-primary mb-3">AI-Native Autocomplete</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Local LLM integration designed into the core editing loop, not bolted on.</p>
+</div>
+<!-- Feature Card -->
+<div class="bg-[#0a0a0a] border border-[#222222] p-8 hover:border-primary transition-colors duration-150 group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">terminal</span>
+<h3 class="font-h3 text-h3 text-primary mb-3">Agent-Operable</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Full headless API allowing AI agents to navigate and modify codebases.</p>
+</div>
+<!-- Feature Card -->
+<div class="bg-[#0a0a0a] border border-[#222222] p-8 hover:border-primary transition-colors duration-150 group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">flight</span>
+<h3 class="font-h3 text-h3 text-primary mb-3">Lightweight Footprint</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A 20MB binary. Unzip and run. No complex installation required.</p>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="py-32 px-6 border-t border-[#111111] bg-surface-container-highest text-center">
+<div class="max-w-2xl mx-auto">
+<h2 class="font-h1 text-h1 text-primary mb-6">Stop tolerating slow.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12">Join the waitlist for early access to the terminal-native IDE of the future.</p>
+<form class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<input class="bg-[#050505] border border-[#333333] px-6 py-4 text-primary font-mono w-full sm:w-80 focus:border-primary focus:ring-0 outline-none transition-colors" placeholder="root@localhost" required="" type="email"/>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 uppercase tracking-wider w-full sm:w-auto hover:bg-white/90 transition-colors" type="submit">
+                        Join Waitlist
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- JSON Component: Footer -->
+<footer class="w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 bg-black border-t border-[#333333]">
+<div class="text-white font-black font-mono text-[10px] tracking-widest uppercase">
+            © 2024 DEEPNERD_SYSTEMS
+        </div>
+<div class="flex gap-6">
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out font-mono text-[10px] tracking-widest uppercase" href="#">Changelog</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out font-mono text-[10px] tracking-widest uppercase" href="#">Status</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out font-mono text-[10px] tracking-widest uppercase" href="#">Privacy</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150 ease-in-out font-mono text-[10px] tracking-widest uppercase" href="#">Terminal_Access</a>
+</div>
+</footer>
+</body></html>

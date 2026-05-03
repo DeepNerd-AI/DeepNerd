@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeepNerd Agents</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ffb4ab",
+                      "error-container": "#93000a",
+                      "surface": "#131313",
+                      "on-tertiary-container": "#646464",
+                      "secondary-container": "#484949",
+                      "on-surface-variant": "#c4c7c8",
+                      "surface-variant": "#353535",
+                      "surface-container": "#1f1f1f",
+                      "surface-container-low": "#1b1b1b",
+                      "on-primary-container": "#636565",
+                      "outline-variant": "#444748",
+                      "surface-container-highest": "#353535",
+                      "primary": "#ffffff",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#464747",
+                      "on-primary": "#2f3131",
+                      "on-surface": "#e2e2e2",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-secondary-container": "#b8b8b8",
+                      "on-secondary": "#2f3131",
+                      "surface-dim": "#131313",
+                      "inverse-on-surface": "#303030",
+                      "on-background": "#e2e2e2",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-fixed-dim": "#c7c6c6",
+                      "inverse-primary": "#5d5f5f",
+                      "tertiary-fixed": "#e3e2e2",
+                      "surface-tint": "#c6c6c7",
+                      "primary-container": "#e2e2e2",
+                      "on-primary-fixed": "#1a1c1c",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary": "#ffffff",
+                      "secondary": "#c7c6c6",
+                      "primary-fixed": "#e2e2e2",
+                      "on-error": "#690005",
+                      "surface-bright": "#393939",
+                      "inverse-surface": "#e2e2e2",
+                      "background": "#131313",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "primary-fixed-dim": "#c6c6c7",
+                      "tertiary-container": "#e3e2e2",
+                      "outline": "#8e9192",
+                      "on-tertiary": "#303031",
+                      "secondary-fixed": "#e3e2e2",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-primary-fixed-variant": "#454747"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "48px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "margin": "32px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "sm": "8px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "h2": [
+                              "Space Grotesk"
+                      ],
+                      "label-xs": [
+                              "Space Grotesk"
+                      ],
+                      "h3": [
+                              "Space Grotesk"
+                      ],
+                      "h1": [
+                              "Space Grotesk"
+                      ],
+                      "body-lg": [
+                              "Space Grotesk"
+                      ],
+                      "label-sm": [
+                              "Space Grotesk"
+                      ],
+                      "body-md": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "h2": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-xs": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "h3": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .border-technical {
+            border-color: #2a2a2a;
+        }
+        .bg-card {
+            background-color: #0a0a0a;
+        }
+        .bg-subcard {
+            background-color: #111111;
+        }
+        .text-muted {
+            color: #888888;
+        }
+        .text-dim {
+            color: #555555;
+        }
+        /* Code block styling */
+        .code-bg {
+            background-color: #050505;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col pt-16">
+<!-- TopNavBar -->
+<nav class="bg-black/90 backdrop-blur-md font-['Space_Grotesk'] tracking-tight text-sm uppercase docked full-width top-0 border-b border-[#333333] flat no-shadows cursor-crosshair active:opacity-80 fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 h-16">
+<div class="text-lg font-bold tracking-tighter text-white">DeepNerd</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-white border-b border-white pb-1 hover:text-white hover:border-[#ffffff] transition-all duration-150" href="#">Products</a>
+<a class="text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150" href="#">Stack</a>
+<a class="text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150" href="#">Docs</a>
+<a class="text-[#555555] hover:text-white hover:border-[#ffffff] transition-all duration-150" href="#">Community</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block bg-primary text-on-primary px-4 py-2 text-xs font-bold hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 rounded">Connect</button>
+<span class="material-symbols-outlined text-white text-xl cursor-pointer hover:text-white transition-colors duration-150">terminal</span>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative w-full min-h-[716px] flex items-center justify-center border-b border-technical overflow-hidden px-6">
+<!-- Abstract Node Graph Background Image -->
+<div class="absolute inset-0 z-0 opacity-30 bg-center bg-cover" data-alt="A highly abstract, minimalistic node graph floating in a vast, dark void. Thin, razor-sharp white lines connect glowing white dots and nodes in a complex network pattern. The background is pure black, with no other colors present. The lighting is clinical and high-contrast, emphasizing the precision of the geometric connections. The aesthetic is strictly monochrome, technological, and futuristic, perfectly aligned with a high-end developer tool's brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvf3nvxh_V6o-vXoarAc_GnVFxB8E_Kop8a0yK1y8us9YEpuezBsTpWbX7vIAGMQeEk5-vVafHmpj_yb1Y5ZVn30d1BhXRhZgqJi36FxsyWwvcOB4p-uVRha_ncSdDK1a0aDI4EebHc-8_M-jum39DqA_PPopjZ0LfL5PwD9FLGISwGRUsiMJaNxu9XOQ5ciN7in0CO-qC_2kiEgzVnsLiBA3Gc14KIJh8C-TSN-Ramom6K1wfga8ktFAGHSk6jEDdMd4pscG4-ys');">
+</div>
+<div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-lg">
+<h1 class="font-h1 text-h1 text-white">Agents that operate.<br/>Not just answer.</h1>
+<p class="font-body-lg text-body-lg text-muted max-w-2xl">DeepNerd agents click, navigate, execute and verify — at computer speed. No UI needed.</p>
+<div class="flex gap-4 mt-sm">
+<button class="bg-primary text-on-primary px-8 py-3 font-label-sm text-label-sm font-bold rounded hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 uppercase tracking-widest">Get API Access</button>
+<button class="bg-transparent text-primary border border-technical px-8 py-3 font-label-sm text-label-sm font-bold rounded hover:border-primary transition-all duration-150 uppercase tracking-widest">Read Docs</button>
+</div>
+</div>
+</section>
+<!-- Differentiator Section -->
+<section class="py-xl px-6 max-w-6xl mx-auto w-full border-b border-technical">
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-lg items-stretch">
+<!-- Col 1 -->
+<div class="flex flex-col gap-md">
+<h3 class="font-h3 text-h3 text-dim">Other agents</h3>
+<ul class="font-body-md text-body-md text-dim space-y-2 list-disc list-inside">
+<li>Reads screen</li>
+<li>Suggests actions</li>
+<li>Needs supervision</li>
+<li>Slow</li>
+<li>Needs pretty UI</li>
+</ul>
+</div>
+<!-- Col 2: Divider -->
+<div class="hidden md:block w-[1px] bg-[#2a2a2a] mx-lg"></div>
+<!-- Col 3 -->
+<div class="flex flex-col gap-md">
+<h3 class="font-h3 text-h3 text-white">DeepNerd agents</h3>
+<ul class="font-body-md text-body-md text-white space-y-2 list-disc list-inside">
+<li>Operates interface</li>
+<li>Executes autonomously</li>
+<li>Self-verifying</li>
+<li>CPU-speed</li>
+<li>Machine-readable only</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Use Cases Grid -->
+<section class="py-xl px-6 max-w-6xl mx-auto w-full border-b border-technical">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-subcard border border-technical p-lg rounded flex flex-col gap-md hover:border-primary transition-colors duration-150">
+<h3 class="font-h3 text-h3 text-white">Code Review Agent</h3>
+<div class="code-bg p-4 rounded border border-technical font-mono text-xs text-muted flex flex-col gap-1">
+<span>&gt; INIT Code_Review_Module_v2</span>
+<span>[RUNNING] git diff main..feature/auth</span>
+<span>[ANALYSIS] Scanning for vulnerabilities...</span>
+<span>[INFO] Found 1 memory leak in auth.ts:42</span>
+<span>[ACTION] Generating patch...</span>
+<span class="text-white">[SUCCESS] Patch applied. Verification complete.</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-subcard border border-technical p-lg rounded flex flex-col gap-md hover:border-primary transition-colors duration-150">
+<h3 class="font-h3 text-h3 text-white">Deployment Agent</h3>
+<div class="code-bg p-4 rounded border border-technical font-mono text-xs text-muted flex flex-col gap-1">
+<span>&gt; INIT Deploy_Orchestrator</span>
+<span>[RUNNING] docker build -t app:latest .</span>
+<span>[INFO] Pushing to registry...</span>
+<span>[ACTION] Updating kubernetes manifests</span>
+<span>[VERIFY] Waiting for pod health checks...</span>
+<span class="text-white">[SUCCESS] Deployment stable across 3 regions.</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-subcard border border-technical p-lg rounded flex flex-col gap-md hover:border-primary transition-colors duration-150">
+<h3 class="font-h3 text-h3 text-white">Data Pipeline Agent</h3>
+<div class="code-bg p-4 rounded border border-technical font-mono text-xs text-muted flex flex-col gap-1">
+<span>&gt; INIT ETL_Agent_09</span>
+<span>[RUNNING] Querying prod_db_cluster_1</span>
+<span>[TRANSFORM] Normalizing user records (N=1.2M)</span>
+<span>[VALIDATE] Checking schema constraints...</span>
+<span>[ACTION] Upserting to data_warehouse</span>
+<span class="text-white">[SUCCESS] Pipeline sync complete. 0 errors.</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-subcard border border-technical p-lg rounded flex flex-col gap-md hover:border-primary transition-colors duration-150">
+<h3 class="font-h3 text-h3 text-white">QA Agent</h3>
+<div class="code-bg p-4 rounded border border-technical font-mono text-xs text-muted flex flex-col gap-1">
+<span>&gt; INIT e2e_Test_Runner</span>
+<span>[RUNNING] Executing headless browser suites</span>
+<span>[INFO] Simulated 500 concurrent user sessions</span>
+<span>[WARN] Timeout detected on checkout flow</span>
+<span>[ACTION] Capturing trace and generating bug report...</span>
+<span class="text-white">[SUCCESS] Report linked to JIRA ticket ENG-404.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- API Preview Section -->
+<section class="py-xl px-6 max-w-4xl mx-auto w-full border-b border-technical">
+<div class="flex flex-col gap-md">
+<h2 class="font-h2 text-h2 text-white">Integrate in minutes</h2>
+<div class="code-bg border border-technical rounded p-lg font-mono text-sm">
+<pre><code class="text-muted"><span class="text-dim">// Initialize the DeepNerd Client</span>
+const { DeepNerd } = require('deepnerd-sdk');
+
+const agent = new DeepNerd({
+  apiKey: process.env.DEEPNERD_API_KEY,
+  environment: 'production'
+});
+
+<span class="text-dim">// Dispatch a task</span>
+const task = await agent.run({
+  objective: "Migrate legacy database to new schema",
+  context: {
+    source: "db://legacy_cluster",
+    target: "db://new_cluster_v2"
+  },
+  autonomous: true,
+  verify: true
+});
+
+console.log(task.status); <span class="text-white">// 'COMPLETED'</span></code></pre>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="py-xl px-6 flex flex-col items-center justify-center gap-md">
+<h2 class="font-h2 text-h2 text-white text-center">Deploy your first agent in 5 minutes.</h2>
+<button class="mt-sm bg-primary text-on-primary px-8 py-3 font-label-sm text-label-sm font-bold rounded hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 uppercase tracking-widest">Start Building</button>
+</section>
+<!-- Footer -->
+<footer class="bg-black font-mono text-[10px] tracking-widest uppercase docked full-width bottom-0 border-t border-[#333333] flat ease-in-out w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 mt-auto">
+<div class="text-white font-black">© 2024 DEEPNERD_SYSTEMS</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-[#555555] hover:text-white transition-colors duration-150" href="#">Changelog</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150" href="#">Status</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150" href="#">Privacy</a>
+<a class="text-[#555555] hover:text-white transition-colors duration-150" href="#">Terminal_Access</a>
+</div>
+</footer>
+</body></html>
