@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "@/components/ui/typewriter";
-import { Stepper } from "@/components/ui/stepper";
+import Stepper from "@/components/ui/stepper";
 import { useRouter } from "next/navigation";
 import { Upload, ChevronRightIcon, ArrowRight, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
