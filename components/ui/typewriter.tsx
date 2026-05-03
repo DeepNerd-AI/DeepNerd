@@ -61,11 +61,13 @@ export function Typewriter({
         }, speed);
       } else {
         if (currentTextIndex === texts.length - 1 && !loop) {
-          setIsFinished(true);
           if (onComplete) {
             timeout = setTimeout(() => {
+              setIsFinished(true);
               onComplete();
             }, pauseDuration);
+          } else {
+            setIsFinished(true);
           }
         } else {
           timeout = setTimeout(() => {

@@ -12,12 +12,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { redirect } from "next/navigation"
+import { createClient } from "@/utils/supabase/server"
 
 export default async function Page(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   if (searchParams?.code) {
     redirect(`/auth/callback?code=${searchParams.code}`);
   }
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   return (
     <SmoothScroll>
@@ -49,7 +53,17 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 <Link className="text-zinc-500 hover:text-white transition-colors duration-150 ease-in-out" href="/docs">DOCS</Link>
 <Link className="text-zinc-500 hover:text-white transition-colors duration-150 ease-in-out" href="/about">ABOUT</Link>
 </nav>
-<Link href="/signup" className="hidden md:block bg-primary text-on-primary px-4 py-2 font-technical-label text-technical-label border border-primary hover:bg-black hover:text-white transition-colors duration-150">Sign Up</Link>
+{user ? (
+  <Link href="/dashboard" className="hidden md:block">
+    <img 
+      src={user.user_metadata?.avatar_url || `https://ui-avatars.com/api/?name=${user.email}`} 
+      alt="Profile" 
+      className="w-10 h-10 rounded-full border border-zinc-800 hover:border-white transition-colors"
+    />
+  </Link>
+) : (
+  <Link href="/signup" className="hidden md:block bg-primary text-on-primary px-4 py-2 font-technical-label text-technical-label border border-primary hover:bg-black hover:text-white transition-colors duration-150">Sign Up</Link>
+)}
 <button className="md:hidden text-white">
 <span className="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
