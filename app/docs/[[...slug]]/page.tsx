@@ -70,7 +70,7 @@ export default async function DocsContentPage({ params }: PageProps) {
                     className="h-8 md:h-9 text-sm"
                   />
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2.5">
-                    <kbd className="hidden h-5 items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex text-muted-foreground">
+                    <kbd className="hidden h-5 items-center gap-1 rounded border bg-zinc-800 px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex text-zinc-500">
                       <span className="text-xs">⌘</span>K
                     </kbd>
                   </div>
@@ -85,11 +85,11 @@ export default async function DocsContentPage({ params }: PageProps) {
               {doc.title}
             </h1>
             {doc.description && (
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-zinc-500">
                 {doc.description}
               </p>
             )}
-            <p className="text-xs text-muted-foreground mt-2">Last updated: {doc.lastUpdated}</p>
+            <p className="text-xs text-zinc-500 mt-2">Last updated: {doc.lastUpdated}</p>
           </div>
 
           <div className="pb-12 pt-8">

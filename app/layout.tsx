@@ -1,27 +1,23 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google"
+import { Inter, Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { SmoothScroll } from "@/components/smooth-scroll"
-import { RootProvider } from "fumadocs-ui/provider/next"
 import "./globals.css"
 
-const ibmPlexSans = IBM_Plex_Sans({
-  weight: ["400", "500", "600", "700"],
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-ibm-plex-sans",
+  variable: "--font-inter",
 })
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["400", "500"],
+
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
+  variable: "--font-space-grotesk",
 })
-const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
 
 export const metadata: Metadata = {
-  title: "DeepNerd — AI Developer Tools",
+  title: "DeepNerd | Infrastructure for AI Agents",
   description:
-    "AI-powered IDEs, autonomous coding agents, and developer APIs. Building the future of AI-assisted development.",
+    "DeepNerd builds the infrastructure AI agents actually need — not prettier dashboards. Machine-readable. Agent-operable. Autonomous by design.",
   generator: "v0.app",
   icons: {
     icon: "/favicon.ico",
@@ -36,9 +32,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-background" suppressHydrationWarning>
+    <html lang="en" className={`dark ${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body
-        className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased`}
+        className="font-sans antialiased"
         suppressHydrationWarning
       >
         <div className="noise-overlay" aria-hidden="true" />

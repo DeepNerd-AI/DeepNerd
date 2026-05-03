@@ -9,7 +9,7 @@ export function DocsExtras() {
     <section className="mt-10 space-y-6">
       <Separator />
 
-      <Card className="border-border bg-card">
+      <Card className="border-zinc-800 bg-black">
         <CardHeader>
           <CardTitle className="text-lg">Developer Notes</CardTitle>
           <CardDescription>Quick references for implementation and rollout strategy.</CardDescription>
@@ -21,13 +21,13 @@ export function DocsExtras() {
               <TabsTrigger value="auth">Auth</TabsTrigger>
               <TabsTrigger value="limits">Limits</TabsTrigger>
             </TabsList>
-            <TabsContent value="overview" className="pt-3 text-sm text-muted-foreground">
+            <TabsContent value="overview" className="pt-3 text-sm text-zinc-500">
               Use project-scoped keys and server-side request handlers for protected operations.
             </TabsContent>
-            <TabsContent value="auth" className="pt-3 text-sm text-muted-foreground">
+            <TabsContent value="auth" className="pt-3 text-sm text-zinc-500">
               Rotate API keys regularly and keep client-side tokens restricted to low-risk endpoints.
             </TabsContent>
-            <TabsContent value="limits" className="pt-3 text-sm text-muted-foreground">
+            <TabsContent value="limits" className="pt-3 text-sm text-zinc-500">
               Implement retries with exponential backoff for 429 and transient 5xx responses.
             </TabsContent>
           </Tabs>
@@ -45,7 +45,7 @@ export function DocsExtras() {
             </AccordionItem>
           </Accordion>
 
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <div className="flex items-center gap-2 text-xs text-zinc-500">
             <Badge variant="secondary">Stable</Badge>
             This page follows the current production API behavior.
           </div>

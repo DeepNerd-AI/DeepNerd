@@ -49,8 +49,8 @@ export function RightSidebar({ markdown }: { markdown: string }) {
 
   return (
     <div className="space-y-4">
-      <p className="font-semibold tracking-tight text-foreground">On this page</p>
-      <ul className="m-0 flex flex-col gap-2 list-none">
+      <p className="font-semibold tracking-[0.1em] uppercase text-xs text-white">On this page</p>
+      <ul className="m-0 flex flex-col gap-2 list-none font-mono text-xs">
             {headings.map((heading, i) => {
               const isActive = activeId === heading.id
               return (
@@ -58,8 +58,8 @@ export function RightSidebar({ markdown }: { markdown: string }) {
                   <a
                     href={`#${heading.id}`}
                     className={cn(
-                      "inline-block no-underline transition-colors hover:text-foreground",
-                      isActive ? "font-medium text-foreground" : "text-muted-foreground"
+                      "inline-block no-underline transition-colors hover:text-white",
+                      isActive ? "font-bold text-white tracking-widest" : "text-zinc-500 tracking-wide"
                     )}
                   >
                     {heading.title}
@@ -69,11 +69,11 @@ export function RightSidebar({ markdown }: { markdown: string }) {
             })}
           </ul>
           
-          <div className="mt-8 border-t border-border pt-4 pb-12">
-            <p className="font-semibold tracking-tight text-foreground mb-2">Helpful links</p>
-            <ul className="flex flex-col gap-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Edit this page</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Report an issue</a></li>
+          <div className="mt-8 border-t border-zinc-800 pt-6 text-sm">
+            <p className="font-semibold tracking-[0.1em] uppercase text-xs text-white mb-2">Helpful links</p>
+            <ul className="flex flex-col gap-2 font-mono text-xs text-zinc-500">
+              <li><a href="#" className="hover:text-white transition-colors">Edit this page</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Report an issue</a></li>
             </ul>
           </div>
     </div>

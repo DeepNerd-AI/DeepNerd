@@ -52,9 +52,9 @@ function CodeBlock({ language, code }: { language: string; code: string }) {
   }
 
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
-      <div className="flex items-center justify-between border-b border-border px-3 py-2">
-        <Badge variant="secondary" className="rounded-md border border-border bg-background text-muted-foreground">
+    <div className="my-6 overflow-hidden rounded-lg border border-zinc-800 bg-black">
+      <div className="flex items-center justify-between border-b border-zinc-800 px-3 py-2">
+        <Badge variant="secondary" className="rounded-md border border-zinc-800 bg-black text-zinc-500">
           {language || "code"}
         </Badge>
         <Button variant="ghost" size="sm" onClick={onCopy} className="h-7 px-2 text-xs">
@@ -78,12 +78,12 @@ export function DocsMarkdownContent({ markdown }: { markdown: string }) {
   const normalizedMarkdown = useMemo(() => markdown.replace(/\r\n/g, "\n"), [markdown])
 
   return (
-    <div className="prose prose-invert max-w-none prose-headings:tracking-tight prose-h1:text-3xl prose-h2:mt-10 prose-h2:text-2xl prose-h3:mt-8 prose-h3:text-xl prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-foreground hover:prose-a:text-white">
+    <div className="prose prose-invert max-w-none prose-headings:tracking-tight prose-h1:text-3xl prose-h2:mt-10 prose-h2:text-2xl prose-h3:mt-8 prose-h3:text-xl prose-p:text-zinc-500 prose-li:text-zinc-500 prose-strong:text-white prose-a:text-white hover:prose-a:text-white">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ className, ...props }) => <h1 className={cn("scroll-mt-24", className)} {...props} />,
-          h2: ({ className, children, ...props }) => <h2 id={generateId(String(children))} className={cn("scroll-mt-24 border-b border-border pb-2 font-bold", className)} {...props}>{children}</h2>,
+          h2: ({ className, children, ...props }) => <h2 id={generateId(String(children))} className={cn("scroll-mt-24 border-b border-zinc-800 pb-2 font-bold", className)} {...props}>{children}</h2>,
           h3: ({ className, children, ...props }) => <h3 id={generateId(String(children))} className={cn("scroll-mt-24 font-bold", className)} {...props}>{children}</h3>,
           code: ({ className, children, ...props }) => {
             const language = className?.replace("language-", "") ?? ""
@@ -95,14 +95,14 @@ export function DocsMarkdownContent({ markdown }: { markdown: string }) {
             }
 
             return (
-              <code className="rounded bg-muted px-1.5 py-0.5 text-sm text-foreground" {...props}>
+              <code className="rounded bg-zinc-800 px-1.5 py-0.5 text-sm text-white" {...props}>
                 {children}
               </code>
             )
           },
           pre: ({ children }) => <>{children}</>,
           table: ({ children }) => (
-            <div className="my-6 overflow-hidden rounded-lg border border-border">
+            <div className="my-6 overflow-hidden rounded-lg border border-zinc-800">
               <Table>{children}</Table>
             </div>
           ),
@@ -119,13 +119,13 @@ export function DocsMarkdownContent({ markdown }: { markdown: string }) {
 
             const parsed = parseCallout(rawText)
             if (!parsed) {
-              return <blockquote className="border-l-2 border-border pl-4 text-muted-foreground">{children}</blockquote>
+              return <blockquote className="border-l-2 border-zinc-800 pl-4 text-zinc-500">{children}</blockquote>
             }
 
             const isWarning = parsed.type === "warning"
             return (
-              <Alert className="my-6 border-border bg-card">
-                {isWarning ? <TriangleAlert className="text-muted-foreground" /> : <Info className="text-muted-foreground" />}
+              <Alert className="my-6 border-zinc-800 bg-black">
+                {isWarning ? <TriangleAlert className="text-zinc-500" /> : <Info className="text-zinc-500" />}
                 <AlertTitle>{isWarning ? "Warning" : "Note"}</AlertTitle>
                 <AlertDescription>{parsed.body}</AlertDescription>
               </Alert>
@@ -152,7 +152,7 @@ export function DocsMarkdownContent({ markdown }: { markdown: string }) {
         {normalizedMarkdown}
       </ReactMarkdown>
 
-      <div className="mt-8 flex items-center gap-2 text-xs text-muted-foreground">
+      <div className="mt-8 flex items-center gap-2 text-xs text-zinc-500">
         <AlertCircle className="size-3.5" />
         Documentation content is versioned and reviewed before release.
       </div>
