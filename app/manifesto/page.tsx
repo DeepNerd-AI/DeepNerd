@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Manifesto — We Think the Tools Are Broken",
+  description: "The DeepNerd manifesto. Speed is not a feature, it's a requirement. Agents don't need beautiful UIs. We chose Rust because we're serious. AI-native doesn't mean AI-added.",
+  alternates: { canonical: "https://deepnerd.tech/manifesto" },
+  openGraph: { title: "DeepNerd Manifesto", description: "We think the tools are broken — so we rebuilt them.", url: "https://deepnerd.tech/manifesto", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Manifesto", description: "We think the tools are broken — so we rebuilt them.", creator: "@deepnerdai" },
+};
 
 export default function ManifestoPage() {
   return (

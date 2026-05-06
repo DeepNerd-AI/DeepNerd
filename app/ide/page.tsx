@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vault IDE — Your Editor. Finally Fast.",
+  description: "DeepNerd Vault IDE: a Rust-native code editor with sub-10ms response, 42MB memory footprint, zero Electron. Built for AI agents and developers who refuse to wait.",
+  alternates: { canonical: "https://deepnerd.tech/ide" },
+  openGraph: { title: "DeepNerd Vault IDE", description: "Your editor. Finally fast. Rust-native. Sub-10ms. Zero Electron.", url: "https://deepnerd.tech/ide", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Vault IDE", description: "Your editor. Finally fast.", creator: "@deepnerdai" },
+};
 
 const codeContent = `// Core execution engine - zero allocations
 pub fn execute_buffer_mutation(

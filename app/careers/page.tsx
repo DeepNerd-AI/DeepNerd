@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Careers — Build the Infrastructure Agents Need",
+  description: "Join DeepNerd. We're looking for founding engineers (Rust), product designers, research leads, and systems engineers. Remote-first. If you think VSCode is too slow, you belong here.",
+  alternates: { canonical: "https://deepnerd.tech/careers" },
+  openGraph: { title: "Careers at DeepNerd", description: "Join the team building infrastructure for AI agents.", url: "https://deepnerd.tech/careers", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "Careers at DeepNerd", description: "We're hiring. Remote-first. Rust-obsessed.", creator: "@deepnerdai" },
+};
 
 export default function CareersPage() {
   return (

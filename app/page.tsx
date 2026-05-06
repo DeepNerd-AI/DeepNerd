@@ -42,9 +42,9 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 <Link className="bg-primary text-on-primary px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2" href="/signup">
                         INIT WORKSPACE <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
 </Link>
-<a className="bg-black text-white border border-zinc-600 px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-900 hover:border-white transition-colors flex items-center justify-center" href="#">
+<Link className="bg-black text-white border border-zinc-600 px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-900 hover:border-white transition-colors flex items-center justify-center" href="/manifesto">
                         READ THE VISION
-                    </a>
+                    </Link>
 </div>
 </div>
 </section>
@@ -67,41 +67,41 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 </div>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-zinc-800">
 {/* Card 1 */}
-<div className="bg-black p-8 border-b md:border-r lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
+<Link href="/ide" className="bg-black p-8 border-b md:border-r lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
 <div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">01 / Vault IDE</div>
 <div>
 <h3 className="font-headline-md text-headline-md text-white mb-2">Agent Vault IDE</h3>
 <p className="font-body-md text-body-md text-zinc-400">Headless development environment optimized for autonomous code generation and validation loops.</p>
 </div>
 <span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="terminal">terminal</span>
-</div>
+</Link>
 {/* Card 2 */}
-<div className="bg-black p-8 border-b lg:border-r lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
+<Link href="/agents" className="bg-black p-8 border-b lg:border-r lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
 <div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">02 / AGENTS</div>
 <div>
 <h3 className="font-headline-md text-headline-md text-white mb-2">Autonomous Workers</h3>
 <p className="font-body-md text-body-md text-zinc-400">Pre-configured operational nodes capable of executing complex multi-step reasoning tasks.</p>
 </div>
 <span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="smart_toy">smart_toy</span>
-</div>
+</Link>
 {/* Card 3 */}
-<div className="bg-black p-8 border-b md:border-r lg:border-r-0 lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
+<Link href="/automation" className="bg-black p-8 border-b md:border-r lg:border-r-0 lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
 <div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">03 / AUTOMATION</div>
 <div>
 <h3 className="font-headline-md text-headline-md text-white mb-2">Pipeline CI/CD</h3>
 <p className="font-body-md text-body-md text-zinc-400">Self-healing deployment pipelines that automatically detect and patch structural vulnerabilities.</p>
 </div>
 <span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="account_tree">account_tree</span>
-</div>
+</Link>
 {/* Card 4 */}
-<div className="bg-black p-8 border-b md:border-b-0 md:border-r border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group lg:border-t">
+<Link href="/tools" className="bg-black p-8 border-b md:border-b-0 md:border-r border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group lg:border-t">
 <div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">04 / TOOLS</div>
 <div>
 <h3 className="font-headline-md text-headline-md text-white mb-2">Native Toolchain</h3>
 <p className="font-body-md text-body-md text-zinc-400">Standardized API connectors and shell utilities designed exclusively for non-human interaction.</p>
 </div>
 <span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="build">build</span>
-</div>
+</Link>
 {/* Card 5 */}
 <div className="bg-[#050505] p-8 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group lg:border-t">
 <div className="font-code-sm text-code-sm text-zinc-600 mb-4">05 / MODEL</div>
@@ -259,7 +259,7 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 <h2 className="font-headline-lg text-headline-lg text-white mb-12">The Developer Stack</h2>
 <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border border-zinc-800">
 {/* Card 1 (Wide) */}
-<div className="col-span-1 md:col-span-8 p-8 border-b md:border-r border-zinc-800 bg-[#111] flex flex-col justify-between h-[400px]">
+<Link href="/ide" className="col-span-1 md:col-span-8 p-8 border-b md:border-r border-zinc-800 bg-[#111] flex flex-col justify-between h-[400px] group hover:bg-[#151515] transition-colors">
 <div>
 <div className="font-code-sm text-zinc-500 mb-2">01 / Vault IDE</div>
 <h3 className="font-headline-md text-white mb-4">Your editor. Finally fast.</h3>
@@ -279,9 +279,9 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
     Ok(())
 {"}"}</code></pre>
 </div>
-</div>
+</Link>
 {/* Card 2 (Square) */}
-<div className="col-span-1 md:col-span-4 p-8 border-b border-zinc-800 bg-[#0a0a0a] flex flex-col justify-between h-[400px]">
+<Link href="/agents" className="col-span-1 md:col-span-4 p-8 border-b border-zinc-800 bg-[#0a0a0a] flex flex-col justify-between h-[400px] group hover:bg-[#111] transition-colors">
 <div>
 <div className="font-code-sm text-zinc-500 mb-2">02 / AGENTS</div>
 <h3 className="font-headline-md text-white mb-4">Not a chatbot. An operator.</h3>
@@ -295,12 +295,12 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 <path d="M 24 50 L 46 24 M 24 50 L 46 76 M 54 24 L 76 50 M 54 76 L 76 50" strokeDasharray="2 2"/>
 </svg>
 </div>
-</div>
+</Link>
 {/* Card 3 (Square) */}
-<div className="col-span-1 md:col-span-4 p-8 border-b md:border-b-0 md:border-r border-zinc-800 bg-[#0a0a0a] flex flex-col justify-between h-[400px]">
+<Link href="/automation" className="col-span-1 md:col-span-4 p-8 border-b md:border-b-0 md:border-r border-zinc-800 bg-[#0a0a0a] flex flex-col justify-between h-[400px] group hover:bg-[#111] transition-colors">
 <div>
 <div className="font-code-sm text-zinc-500 mb-2">03 / AUTOMATION</div>
-<h3 className="font-headline-md text-white mb-4">If it's repetitive, it's already automated.</h3>
+<h3 className="font-headline-md text-white mb-4">{`If it's repetitive, it's already automated.`}</h3>
 </div>
 <div className="mt-8 font-code-sm text-xs text-zinc-500">
 <div className="">$ trigger pipeline --force</div>
@@ -310,20 +310,20 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 <div className="">&gt; deploy... OK</div>
 </div>
 </div>
-</div>
+</Link>
 {/* Card 4 (Square) */}
-<div className="col-span-1 md:col-span-4 p-8 border-b md:border-b-0 md:border-r border-zinc-800 bg-[#111] flex flex-col justify-between h-[400px]">
+<Link href="/tools" className="col-span-1 md:col-span-4 p-8 border-b md:border-b-0 md:border-r border-zinc-800 bg-[#111] flex flex-col justify-between h-[400px] group hover:bg-[#151515] transition-colors">
 <div>
 <div className="font-code-sm text-zinc-500 mb-2">04 / MCP</div>
-<h3 className="font-headline-md text-white mb-4">We don't add more MCPs. We make them unnecessary.</h3>
+<h3 className="font-headline-md text-white mb-4">{`We don't add more MCPs. We make them unnecessary.`}</h3>
 </div>
 <div className="bg-black border border-zinc-800 p-2 mt-auto">
 <div className="text-zinc-400 font-code-sm text-xs border-b border-zinc-800 pb-2 mb-2">&gt; Search commands...</div>
 <div className="text-white font-code-sm text-xs bg-zinc-900 p-1">execute native_toolchain</div>
 </div>
-</div>
+</Link>
 {/* Card 5 (Square) */}
-<div className="col-span-1 md:col-span-4 p-8 bg-black flex flex-col justify-between h-[400px] relative overflow-hidden">
+<Link href="/model-teaser-1" className="col-span-1 md:col-span-4 p-8 bg-black flex flex-col justify-between h-[400px] relative overflow-hidden">
 <div className="absolute inset-0 bg-[#050505]/80 backdrop-blur-sm z-10 flex items-center justify-center">
 <div className="border border-red-900/50 text-red-700 px-4 py-1 font-technical-label text-sm uppercase tracking-widest rotate-[-15deg]">
                         [REDACTED]
@@ -333,7 +333,7 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 <div className="font-code-sm text-zinc-500 mb-2">05 / MODEL</div>
 <h3 className="font-headline-md text-white mb-4">The model that runs the stack.</h3>
 </div>
-</div>
+</Link>
 </div>
 </div>
 </section>
@@ -402,20 +402,20 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
         If you hate slow tools as much as we do — you belong here.
     </h2>
 <div className="flex flex-col sm:flex-row gap-6">
-<a className="bg-white text-black px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-200 transition-colors" href="#">
+<Link className="bg-white text-black px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-200 transition-colors" href="/signup">
             Request Early Access
-        </a>
-<a className="bg-transparent text-white border border-zinc-600 px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:border-white transition-colors" href="#">
+        </Link>
+<Link className="bg-transparent text-white border border-zinc-600 px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:border-white transition-colors" href="/docs">
             Read the Docs
-        </a>
+        </Link>
 </div>
 </section>
 {/* Bottom CTA */}
 <section className="py-32 px-6 flex flex-col items-center justify-center text-center bg-black border-b border-zinc-800">
 <h2 className="font-headline-xl text-[64px] text-white tracking-tighter mb-8">Join the agent era.</h2>
-<a className="bg-white text-black px-12 py-5 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-300 transition-colors" href="#">
+<Link className="bg-white text-black px-12 py-5 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-300 transition-colors" href="/signup">
                 INITIALIZE WORKSPACE
-            </a>
+            </Link>
 </section>
 </main>
 {/* Footer */}

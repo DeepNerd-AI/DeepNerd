@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Automation — If It Repeats, It Runs Itself",
+  description: "DeepNerd Automation: unified pipeline engine for triggers, actions, and agent workflows. Code-first infrastructure for CI/CD, webhooks, scheduled tasks, and event-driven automation.",
+  alternates: { canonical: "https://deepnerd.tech/automation" },
+  openGraph: { title: "DeepNerd Automation", description: "If it repeats, it runs itself. Code-first automation pipelines.", url: "https://deepnerd.tech/automation", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Automation", description: "If it repeats, it runs itself.", creator: "@deepnerdai" },
+};
 
 export default function AutomationPage() {
   return (

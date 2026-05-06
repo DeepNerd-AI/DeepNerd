@@ -335,27 +335,41 @@ export const siteConfig = {
   },
   footerLinks: [
     {
-      title: "Platform",
+      title: "Products",
       links: [
-        { id: 1, title: "Vault Vault IDE", url: "/docs" },
-        { id: 2, title: "Muac Agent", url: "/docs" },
-        { id: 3, title: "API Reference", url: "/docs" },
+        { id: 1, title: "Vault IDE", url: "/ide" },
+        { id: 2, title: "Agents", url: "/agents" },
+        { id: 3, title: "Automation", url: "/automation" },
+        { id: 4, title: "Tools", url: "/tools" },
+        { id: 5, title: "All Products", url: "/products" },
       ],
     },
     {
       title: "Company",
       links: [
-        { id: 5, title: "About Us", url: "/about" },
-        { id: 6, title: "Privacy Policy", url: "/privacy" },
-        { id: 7, title: "Terms of Service", url: "/terms" },
+        { id: 6, title: "Manifesto", url: "/manifesto" },
+        { id: 7, title: "Careers", url: "/careers" },
+        { id: 8, title: "About", url: "/about" },
+        { id: 9, title: "Contact", url: "/contact" },
+        { id: 10, title: "Model [Soon]", url: "/model-teaser-1" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { id: 9, title: "GitHub", url: "https://github.com/DeepNerd-AI" },
-        { id: 10, title: "X / Twitter", url: "https://twitter.com" },
-        { id: 11, title: "Blog", url: "/docs" },
+        { id: 11, title: "Writing", url: "/writing" },
+        { id: 12, title: "Changelog", url: "/changelog" },
+        { id: 13, title: "Documentation", url: "/docs" },
+      ],
+    },
+    {
+      title: "Connect",
+      links: [
+        { id: 14, title: "GitHub", url: "https://github.com/DeepNerd-AI" },
+        { id: 15, title: "X / Twitter", url: "https://x.com/deepnerdai" },
+        { id: 16, title: "YouTube", url: "https://www.youtube.com/@deepnerdai" },
+        { id: 17, title: "Privacy", url: "/privacy" },
+        { id: 18, title: "Terms", url: "/terms" },
       ],
     },
   ],
@@ -366,7 +380,7 @@ export const DeepNerdFooter = () => {
 
   return (
     <footer id="footer" className="w-full pb-0 bg-black pt-12 border-t border-zinc-800">
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between px-6 md:px-12 max-w-[1440px] mx-auto gap-12">
+      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between px-6 md:px-12 max-w-[1440px] mx-auto gap-10 overflow-hidden">
         <div className="flex flex-col items-start justify-start gap-y-5 w-full md:w-[384px] shrink-0">
           <Link href="/" className="flex items-center gap-2 group">
             <Icons.logo className="size-6 transition-transform group-hover:scale-110" />
@@ -376,19 +390,19 @@ export const DeepNerdFooter = () => {
             {siteConfig.hero.description}
           </p>
         </div>
-        <div className="md:w-1/2 flex flex-wrap md:flex-nowrap gap-12 md:gap-24">
+        <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-10">
           {siteConfig.footerLinks.map((column, columnIndex) => (
-            <ul key={columnIndex} className="flex flex-col gap-y-3 min-w-[120px]">
-              <li className="mb-1 text-xs font-mono uppercase tracking-widest text-zinc-300 font-bold">
+            <ul key={columnIndex} className="flex flex-col gap-y-2.5">
+              <li className="mb-1 text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-bold">
                 {column.title}
               </li>
               {column.links.map((link) => (
                 <li
                   key={link.id}
-                  className="group inline-flex cursor-pointer items-center justify-start gap-1 text-sm font-sans text-zinc-400 hover:text-white transition-colors"
+                  className="group inline-flex cursor-pointer items-center justify-start gap-1 text-sm font-sans text-zinc-500 hover:text-white transition-colors"
                 >
                   <Link href={link.url}>{link.title}</Link>
-                  <div className="flex size-4 items-center justify-center opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100">
+                  <div className="flex size-3 items-center justify-center opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100">
                     <ChevronRightIcon className="size-3" />
                   </div>
                 </li>

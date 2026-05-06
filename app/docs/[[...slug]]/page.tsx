@@ -92,6 +92,12 @@ export default async function DocsContentPage({ params }: PageProps) {
             <p className="text-xs text-zinc-500 mt-2">Last updated: {doc.lastUpdated}</p>
           </div>
 
+          {normalizedSlug.length === 0 && (
+            <div className="mt-8 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl relative">
+              <img src="/Prototypes/Docs.png" alt="DeepNerd Documentation" className="w-full object-cover" />
+            </div>
+          )}
+
           <div className="pb-12 pt-8">
             <DocsMarkdownContent markdown={doc.markdown} />
             <DocsExtras />

@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Writing — Engineering Decisions & Deep Dives",
+  description: "Engineering decisions, opinions, and technical deep dives from the DeepNerd team. Topics include Rust architecture, agent-first design, sub-10ms latency, and autonomous software development.",
+  alternates: { canonical: "https://deepnerd.tech/writing" },
+  openGraph: { title: "DeepNerd Writing", description: "Engineering decisions. Opinions. Technical deep dives. No fluff.", url: "https://deepnerd.tech/writing", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Writing", description: "Engineering decisions. Opinions. Technical deep dives. No fluff.", creator: "@deepnerdai" },
+};
 
 const posts = [
   { category: "Agents", date: "2024.10.05", title: "Agents as First-Class Citizens" },

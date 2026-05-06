@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Changelog — Every Update, Fix, and Ship",
+  description: "Full release history for all DeepNerd products. Detailed version notes, new features, improvements, and bug fixes across the Vault IDE, Agents, Automation, and Tools.",
+  alternates: { canonical: "https://deepnerd.tech/changelog" },
+  openGraph: { title: "DeepNerd Changelog", description: "Every update, fix, and ship. Complete release history.", url: "https://deepnerd.tech/changelog", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Changelog", description: "Every update, fix, and ship.", creator: "@deepnerdai" },
+};
 
 const codeExample = `// Example config update required for v1.4.0
 {

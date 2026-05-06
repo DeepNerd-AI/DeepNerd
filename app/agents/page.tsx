@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Agents — Autonomous Operators for Code",
+  description: "DeepNerd agents are autonomous operators — not chatbots. They write, review, test, deploy, and refactor code without human intervention. Built for multi-step reasoning at machine speed.",
+  alternates: { canonical: "https://deepnerd.tech/agents" },
+  openGraph: { title: "DeepNerd Agents — Autonomous Operators", description: "Agents that write, review, test, and deploy code without human intervention.", url: "https://deepnerd.tech/agents", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Agents", description: "Autonomous operators for code — not chatbots.", creator: "@deepnerdai" },
+};
 
 export default function AgentsPage() {
   return (

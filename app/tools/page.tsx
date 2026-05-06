@@ -1,6 +1,15 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tools & Primitives — Built for Machine Consumption",
+  description: "DeepNerd execution primitives: DeepShell (terminal), Native-FS (file system), V-GPU (compute), Auth-Proxy, Secret-Safe, and more. Standardized interfaces for autonomous agent operations.",
+  alternates: { canonical: "https://deepnerd.tech/tools" },
+  openGraph: { title: "DeepNerd Tools", description: "Primitives that agents actually use. Built for machine consumption.", url: "https://deepnerd.tech/tools", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Tools", description: "Primitives that agents actually use.", creator: "@deepnerdai" },
+};
 
 const sdkCode = `import { DeepNerd } from '@deepnerd/core';
 

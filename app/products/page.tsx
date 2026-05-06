@@ -1,6 +1,16 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Products — Everything We Build",
+  description: "One stack. Five weapons. DeepNerd products: Vault IDE (Rust-native editor), Agents (autonomous operators), Automation (pipeline engine), Tools (execution primitives), and a proprietary model.",
+  alternates: { canonical: "https://deepnerd.tech/products" },
+  openGraph: { title: "DeepNerd Products", description: "One stack. Five weapons. Everything we build.", url: "https://deepnerd.tech/products", siteName: "DeepNerd", type: "website" },
+  twitter: { card: "summary_large_image", title: "DeepNerd Products", description: "One stack. Five weapons.", creator: "@deepnerdai" },
+};
 
 export default function ProductsPage() {
   return (
@@ -17,7 +27,7 @@ export default function ProductsPage() {
           {/* Bento Grid */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(250px,auto)]">
             {/* Card 1 (IDE) */}
-            <div className="md:col-span-8 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
+            <Link href="/ide" className="md:col-span-8 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
               <div>
                 <span className="font-mono text-xs text-outline tracking-widest uppercase mb-4 block">01 / IDE</span>
                 <h2 className="font-h2 text-h2 text-primary mb-4">The editor rebuilt from zero. In Rust.</h2>
@@ -26,10 +36,10 @@ export default function ProductsPage() {
               <div className="mt-6 text-outline group-hover:text-primary transition-colors duration-150">
                 <span className="font-mono text-sm">→ Explore</span>
               </div>
-            </div>
+            </Link>
 
             {/* Card 2 (Agents) */}
-            <div className="md:col-span-4 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
+            <Link href="/agents" className="md:col-span-4 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
               <div>
                 <span className="font-mono text-xs text-outline tracking-widest uppercase mb-4 block">02 / Agents</span>
                 <h3 className="font-h3 text-h3 text-primary mb-4">Operators, not assistants.</h3>
@@ -38,10 +48,10 @@ export default function ProductsPage() {
               <div className="mt-6 text-outline group-hover:text-primary transition-colors duration-150">
                 <span className="font-mono text-sm">→ Deploy</span>
               </div>
-            </div>
+            </Link>
 
             {/* Card 3 (Automation) */}
-            <div className="md:col-span-4 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
+            <Link href="/automation" className="md:col-span-4 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
               <div>
                 <span className="font-mono text-xs text-outline tracking-widest uppercase mb-4 block">03 / Automation</span>
                 <h3 className="font-h3 text-h3 text-primary mb-4">If it repeats, it runs itself.</h3>
@@ -50,10 +60,10 @@ export default function ProductsPage() {
               <div className="mt-6 text-outline group-hover:text-primary transition-colors duration-150">
                 <span className="font-mono text-sm">→ Automate</span>
               </div>
-            </div>
+            </Link>
 
             {/* Card 4 (Tools) */}
-            <div className="md:col-span-4 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
+            <Link href="/tools" className="md:col-span-4 bg-[#111] border border-[#2a2a2a] p-6 flex flex-col justify-between hover:border-primary hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150 cursor-pointer group">
               <div>
                 <span className="font-mono text-xs text-outline tracking-widest uppercase mb-4 block">04 / Tools</span>
                 <h3 className="font-h3 text-h3 text-primary mb-4">Primitives that agents actually use.</h3>
@@ -62,10 +72,10 @@ export default function ProductsPage() {
               <div className="mt-6 text-outline group-hover:text-primary transition-colors duration-150">
                 <span className="font-mono text-sm">→ Access</span>
               </div>
-            </div>
+            </Link>
 
             {/* Card 5 (Model - Classified) */}
-            <div className="md:col-span-4 relative bg-[#111]/50 border border-[#2a2a2a] p-6 flex flex-col justify-between overflow-hidden">
+            <Link href="/model-teaser-1" className="md:col-span-4 relative bg-[#111]/50 border border-[#2a2a2a] p-6 flex flex-col justify-between overflow-hidden">
               <div className="absolute inset-0 backdrop-blur-[2px] z-10 pointer-events-none"></div>
               <div className="relative z-0 opacity-40">
                 <span className="font-mono text-xs text-outline tracking-widest uppercase mb-4 block">SOON</span>
@@ -76,7 +86,7 @@ export default function ProductsPage() {
                 <span className="material-symbols-outlined text-outline text-sm">lock</span>
                 <span className="font-mono text-xs text-outline">Classified</span>
               </div>
-            </div>
+            </Link>
           </div>
         </main>
         <DeepNerdFooter />
