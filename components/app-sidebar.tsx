@@ -30,11 +30,6 @@ import {
 } from "@/components/ui/sidebar"
 
 const data = {
-  user: {
-    name: "Developer",
-    email: "dev@deepnerd.tech",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Overview",
@@ -98,7 +93,13 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+type SidebarUser = {
+  name: string
+  email: string
+  avatar: string
+}
+
+export function AppSidebar({ user, ...props }: React.ComponentProps<typeof Sidebar> & { user: SidebarUser }) {
   return (
     <Sidebar collapsible="offcanvas" {...props} className="border-r border-zinc-800 bg-[#050505]">
       <SidebarHeader>
@@ -128,7 +129,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </div>
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   )

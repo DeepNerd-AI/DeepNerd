@@ -28,6 +28,8 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { createClient } from "@/utils/supabase/client"
+import Link from "next/link"
 
 export function NavUser({
   user,
@@ -39,6 +41,7 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
+  const supabase = createClient()
 
   return (
     <SidebarMenu>
@@ -84,21 +87,33 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-zinc-800" />
             <DropdownMenuGroup>
-              <DropdownMenuItem className="text-zinc-400 hover:text-white focus:text-white focus:bg-zinc-800">
+              <DropdownMenuItem asChild className="text-zinc-400 hover:text-white focus:text-white focus:bg-zinc-800">
+                <Link href="/dashboard/settings">
                 <User className="size-4" />
                 Account
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="text-zinc-400 hover:text-white focus:text-white focus:bg-zinc-800">
+              <DropdownMenuItem asChild className="text-zinc-400 hover:text-white focus:text-white focus:bg-zinc-800">
+                <Link href="/dashboard/apis">
                 <CreditCard className="size-4" />
                 Billing
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="text-zinc-400 hover:text-white focus:text-white focus:bg-zinc-800">
+              <DropdownMenuItem asChild className="text-zinc-400 hover:text-white focus:text-white focus:bg-zinc-800">
+                <Link href="/dashboard/notifications">
                 <Bell className="size-4" />
                 Notifications
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator className="bg-zinc-800" />
-            <DropdownMenuItem className="text-red-400 hover:text-red-300 focus:text-red-300 focus:bg-zinc-800">
+            <DropdownMenuItem
+              className="text-red-400 hover:text-red-300 focus:text-red-300 focus:bg-zinc-800"
+              onClick={async () => {
+                await supabase.auth.signOut()
+                window.location.href = "/login"
+              }}
+            >
               <LogOut className="size-4" />
               Log out
             </DropdownMenuItem>
