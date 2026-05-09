@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import {
   Activity,
   TerminalSquare,
@@ -109,8 +110,8 @@ export function AppSidebar({ user, ...props }: React.ComponentProps<typeof Sideb
               asChild
               className="data-[slot=sidebar-menu-button]:p-1.5! hover:bg-zinc-900"
             >
-              <a href="/">
-                <Terminal className="size-5! text-white" />
+              <a href="/" className="flex items-center gap-2">
+                <Image src="/favicon.svg" alt="DeepNerd Logo" width={20} height={20} className="invert" />
                 <span className="text-base font-bold tracking-widest uppercase font-mono text-white">DeepNerd</span>
               </a>
             </SidebarMenuButton>

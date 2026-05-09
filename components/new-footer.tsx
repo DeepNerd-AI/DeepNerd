@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export function NewFooter() {
   return (
@@ -19,7 +20,7 @@ export function NewFooter() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-white/10 font-mono text-xs uppercase tracking-widest text-muted-foreground">
           
           <div className="flex items-center gap-2 text-white font-bold tracking-[0.2em]">
-            <div className="size-3 border border-white"></div>
+            <Image src="/favicon.svg" alt="DeepNerd Logo" width={16} height={16} className="invert" />
             DEEPNERD
           </div>
 

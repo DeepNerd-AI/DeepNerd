@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Separator } from "@/components/ui/separator"
 import {
   NavigationMenu,
@@ -16,7 +17,10 @@ export async function Navbar() {
 
   return (
     <header className="bg-black text-white font-technical-label text-technical-label tracking-tighter uppercase border-b border-zinc-800 flex justify-between items-center px-6 h-14 w-full sticky top-0 z-50 backdrop-blur-xl bg-black/90">
-      <Link href="/" className="text-base font-black tracking-[0.2em] text-white shrink-0">DEEPNERD</Link>
+      <Link href="/" className="flex items-center gap-2 text-base font-black tracking-[0.2em] text-white shrink-0">
+        <Image src="/favicon.svg" alt="DeepNerd Logo" width={20} height={20} className="invert" />
+        DEEPNERD
+      </Link>
       <nav className="hidden md:flex items-center">
         <Link className="text-zinc-500 hover:text-white transition-colors duration-150 ease-in-out text-xs px-3 py-1.5" href="/">HOME</Link>
 
