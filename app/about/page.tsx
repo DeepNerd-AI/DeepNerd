@@ -50,19 +50,16 @@ export default function AboutPage() {
             title="Security by default"
             body="Auth guards, RLS-backed data access, auditable events, and strict separation between users and workloads."
           />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-20 md:px-10">
-        <SiteGoalsAccordion />
-      </section>
-          />
           <FeatureCard
             icon={<Zap className="size-5 text-white" />}
             title="Real-time operations"
             body="Live metrics, notification-driven awareness, and rapid feedback loops for modern product teams."
           />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-20 md:px-10">
+        <SiteGoalsAccordion />
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-24 md:px-10">
