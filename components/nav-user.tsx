@@ -28,6 +28,17 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { createClient } from "@/utils/supabase/client"
 import Link from "next/link"
 
@@ -107,16 +118,37 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator className="bg-zinc-800" />
-            <DropdownMenuItem
-              className="text-red-400 hover:text-red-300 focus:text-red-300 focus:bg-zinc-800"
-              onClick={async () => {
-                await supabase.auth.signOut()
-                window.location.href = "/login"
-              }}
-            >
-              <LogOut className="size-4" />
-              Log out
-            </DropdownMenuItem>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <DropdownMenuItem
+                  className="text-red-400 hover:text-red-300 focus:text-red-300 focus:bg-zinc-800"
+                  onSelect={(e) => e.preventDefault()}
+                >
+                  <LogOut className="size-4" />
+                  Log out
+                </DropdownMenuItem>
+              </AlertDialogTrigger>
+              <AlertDialogContent className="bg-[#0a0a0a] border-zinc-800 text-white">
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you sure you want to log out?</AlertDialogTitle>
+                  <AlertDialogDescription className="text-zinc-400">
+                    You will be securely signed out of your account on this device.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel className="bg-[#111] border-zinc-800 text-white hover:bg-zinc-800 hover:text-white">Cancel</AlertDialogCancel>
+                  <AlertDialogAction
+                    className="bg-red-600 text-white hover:bg-red-700"
+                    onClick={async () => {
+                      await supabase.auth.signOut()
+                      window.location.href = "/login"
+                    }}
+                  >
+                    Log out
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

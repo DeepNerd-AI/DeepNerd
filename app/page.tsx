@@ -2,6 +2,7 @@ import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll"
 import Silk from "@/components/ui/silk"
 import Link from "next/link"
+import { SiteGoalsAccordion } from "@/components/site-goals-accordion"
 import { Testimonials } from "@/components/demo-testimonials"
 import { GridPatternBackground } from "@/components/ui/grid-feature-cards"
 import {
@@ -48,6 +49,12 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 </div>
 </div>
 </section>
+
+{/* Site Goals Section */}
+<section className="relative flex flex-col justify-center items-center text-left px-6 md:px-12 py-12 md:py-24 border-b border-zinc-800">
+  <SiteGoalsAccordion />
+</section>
+
 {/* Trust Bar */}
 <section className="py-8 px-6 md:px-12 border-b border-zinc-800 bg-black flex flex-wrap gap-8 items-center justify-between opacity-50 grayscale font-technical-label text-technical-label tracking-widest text-zinc-500">
 <span className="">VSCODE</span>

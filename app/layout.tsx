@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { PageBackground } from "@/components/page-background"
+import ClickSpark from "@/components/ui/click-spark"
 import "./globals.css"
 
 const inter = Inter({
@@ -184,9 +186,18 @@ export default function RootLayout({
         className="font-sans antialiased"
         suppressHydrationWarning
       >
-        <div className="noise-overlay" aria-hidden="true" />
-        {children}
-        <Analytics />
+        <ClickSpark
+          sparkColor='#fff'
+          sparkSize={10}
+          sparkRadius={15}
+          sparkCount={8}
+          duration={400}
+        >
+          <div className="noise-overlay" aria-hidden="true" />
+          <PageBackground />
+          {children}
+          <Analytics />
+        </ClickSpark>
       </body>
     </html>
   )

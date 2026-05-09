@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Bot, Code2, ShieldCheck, Zap } from "lucide-react";
 import type React from "react";
+import { SiteGoalsAccordion } from "@/components/site-goals-accordion";
 
 export default function AboutPage() {
   return (
@@ -48,6 +49,13 @@ export default function AboutPage() {
             icon={<ShieldCheck className="size-5 text-white" />}
             title="Security by default"
             body="Auth guards, RLS-backed data access, auditable events, and strict separation between users and workloads."
+          />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-20 md:px-10">
+        <SiteGoalsAccordion />
+      </section>
           />
           <FeatureCard
             icon={<Zap className="size-5 text-white" />}

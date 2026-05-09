@@ -6,13 +6,17 @@ import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { Typewriter } from "@/components/ui/typewriter";
 
-const STEPS = ["BASIC INFO", "PROFILE", "DISCOVERY", "COMPLIANCE"];
+const STEPS = ["BASIC INFO", "PROFILE", "ORGANIZATION", "DISCOVERY", "COMPLIANCE"];
 
 type OnboardingForm = {
   fullName: string;
   username: string;
   bio: string;
+  role: string;
+  organization: string;
+  useCase: string;
   source: string;
   feedback: string;
   acceptedTerms: boolean;
@@ -21,7 +25,8 @@ type OnboardingForm = {
 export function OnboardingFlow() {
   const router = useRouter();
   const { toast } = useToast();
-  const [step, setStep] = useState(0);
+  // Use step -1 for animated welcome intro text
+  const [step, setStep] = useState(-1);
   const [checkingUsername, setCheckingUsername] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -30,15 +35,20 @@ export function OnboardingFlow() {
     fullName: "",
     username: "",
     bio: "",
+    role: "",
+    organization: "",
+    useCase: "",
     source: "",
     feedback: "",
     acceptedTerms: false,
   });
 
   const canContinue = useMemo(() => {
+    if (step === -1) return false; // Prevent advancing manually if needed, wait for animation
     if (step === 0) return data.fullName.trim() && data.username.trim();
-    if (step === 2) return data.source.trim();
-    if (step === 3) return data.acceptedTerms;
+    if (step === 2) return data.role.trim() && data.useCase.trim();
+    if (step === 3) return data.source.trim();
+    if (step === 4) return data.acceptedTerms;
     return true;
   }, [step, data]);
 
@@ -70,10 +80,14 @@ export function OnboardingFlow() {
       if (!data.username.trim()) return setErrors((p) => ({ ...p, username: "Required" }));
       if (!(await validateUsername())) return;
     }
-    if (step === 2 && !data.source.trim()) {
+    if (step === 2) {
+      if (!data.role.trim()) return setErrors((p) => ({ ...p, role: "Required" }));
+      if (!data.useCase.trim()) return setErrors((p) => ({ ...p, useCase: "Required" }));
+    }
+    if (step === 3 && !data.source.trim()) {
       return setErrors((p) => ({ ...p, source: "Required" }));
     }
-    if (step === 3) {
+    if (step === 4) {
       await submit();
       return;
     }
@@ -104,6 +118,25 @@ export function OnboardingFlow() {
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  if (step === -1) {
+    return (
+      <div className="flex h-screen w-screen flex-col items-center justify-center bg-black text-white relative px-6 text-center">
+        <div className="max-w-2xl text-2xl md:text-4xl font-mono font-bold leading-relaxed tracking-tight relative z-10">
+          <Typewriter
+            texts={["Initializing DeepNerd framework...", "Configuring environment variables...", "Welcome to the future of agentic engineering."]}
+            speed={40}
+            deleteSpeed={20}
+            pauseDuration={1200}
+            onComplete={() => {
+              // Automatically move to step 0 when animation finishes
+              setTimeout(() => setStep(0), 1000);
+            }}
+          />
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -232,6 +265,34 @@ function StepContent({
     );
   }
   if (step === 2) {
+    return (
+      <>
+        <h2 className="text-2xl font-bold tracking-tight">Organization & Use Case</h2>
+        <InputField label="Your Role" value={data.role} onChange={(v) => update("role", v)} error={errors.role} />
+        <InputField label="Organization / Company (Optional)" value={data.organization} onChange={(v) => update("organization", v)} error={errors.organization} />
+        <div className="space-y-2">
+          <label className="text-xs uppercase tracking-widest text-zinc-500 font-mono">Primary Use Case</label>
+          <select
+            value={data.useCase}
+            onChange={(e) => update("useCase", e.target.value)}
+            className={cn(
+              "w-full bg-zinc-950 border p-4 text-sm text-white focus:outline-none focus:border-white transition-colors appearance-none",
+              errors.useCase ? "border-red-500/50" : "border-zinc-800"
+            )}
+          >
+            <option value="" disabled>Select a use case</option>
+            <option value="internal_tools">Internal AI Tooling</option>
+            <option value="code_generation">Code Generation Assistants</option>
+            <option value="autonomous_agents">Autonomous / Research Agents</option>
+            <option value="testing_automation">Automated Testing & QA</option>
+            <option value="other">Other</option>
+          </select>
+          {errors.useCase && <p className="text-xs text-red-500">{errors.useCase}</p>}
+        </div>
+      </>
+    );
+  }
+  if (step === 3) {
     return (
       <>
         <h2 className="text-2xl font-bold tracking-tight">Discovery</h2>

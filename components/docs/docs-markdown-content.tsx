@@ -7,6 +7,7 @@ import { AlertCircle, Copy, Info, TriangleAlert } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { SiteGoalsAccordion } from "@/components/site-goals-accordion"
 import {
   Table,
   TableBody,
@@ -146,6 +147,13 @@ export function DocsMarkdownContent({ markdown }: { markdown: string }) {
                 {children}
               </a>
             )
+          },
+          p: ({ children }) => {
+            const rawText = String(children);
+            if (rawText.trim() === '<SiteGoalsAccordion />') {
+              return <SiteGoalsAccordion />;
+            }
+            return <p>{children}</p>;
           },
         }}
       >
