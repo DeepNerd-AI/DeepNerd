@@ -155,14 +155,14 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   }
 
   return {
-    title: \`\${article.title} | DeepNerd\`,
+    title: `${article.title} | DeepNerd`,
     description: article.description,
     openGraph: {
       title: article.title,
       description: article.description,
       images: ['/docs-og.png'], // User requested docs photo for thumbnail
       type: 'article',
-      publishedTime: article.date.replace(/\\./g, '-'),
+      publishedTime: article.date.replace(/\./g, '-'),
       authors: ['DeepNerd Engineering'],
     },
     twitter: {
