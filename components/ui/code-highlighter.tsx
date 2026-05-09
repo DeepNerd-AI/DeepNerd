@@ -53,15 +53,15 @@ export function CodeHighlighter({ code, language = "typescript", className = "" 
     let parts: { type: string, text: string }[] = [];
     
     // Split by lines to handle comments better
-    const lines = str.split("\\n");
+    const lines = str.split("\n");
     
     // For simplicity, let's just do sequential replacements with unique tokens 
     // to avoid nested replacements if we aren't using a real lexer.
     // Or we can just render it line by line
     
-    return str.split("\\n").map((line, i) => {
+    return str.split("\n").map((line, i) => {
       if (line.trim().startsWith("//")) {
-        return <span key={i} className="text-zinc-500">{line}{"\\n"}</span>;
+        return <span key={i} className="text-zinc-500">{line}{"\n"}</span>;
       }
       
       // Basic line parsing
@@ -81,12 +81,12 @@ export function CodeHighlighter({ code, language = "typescript", className = "" 
         return `<span class="text-zinc-500">${cleanComment}</span>`;
       });
 
-      return <span key={i} dangerouslySetInnerHTML={{ __html: parsedLine + "\\n" }} />;
+      return <span key={i} dangerouslySetInnerHTML={{ __html: parsedLine + "\n" }} />;
     });
   };
 
   return (
-    <pre className={\`font-mono text-sm leading-relaxed whitespace-pre font-light \${className}\`}>
+    <pre className={`font-mono text-sm leading-relaxed whitespace-pre font-light ${className}`}>
       <code>{highlightCode(code)}</code>
     </pre>
   );

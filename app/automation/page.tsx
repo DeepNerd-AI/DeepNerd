@@ -28,7 +28,8 @@ export default function AutomationPage() {
               <button className="bg-white text-black px-6 py-3 font-body-md font-bold uppercase tracking-tight hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150">Build a Pipeline</button>
               <button className="bg-transparent text-white border border-subtle px-6 py-3 font-body-md uppercase tracking-tight hover:border-white transition-all duration-150">See Examples</button>
             </div>
-          </section>
+          </div>
+        </section>
 
           {/* Pipeline Visualizer */}
           <section className="w-full relative py-12">
