@@ -22,7 +22,7 @@ export async function Navbar() {
 
         <Separator orientation="vertical" className="h-4 bg-zinc-700 mx-1" />
 
-        <NavigationMenu delayDuration={0} skipDelayDuration={0}>
+        <NavigationMenu delayDuration={0} skipDelayDuration={0} viewport={false}>
           <NavigationMenuList className="gap-0">
             <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent hover:bg-transparent hover:text-white text-zinc-500 font-technical-label uppercase px-3 py-1.5 data-[state=open]:bg-transparent data-[active]:bg-transparent h-auto text-xs rounded-none">
