@@ -2,6 +2,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import Beams from "@/components/ui/beams";
+import { CodeHighlighter } from "@/components/ui/code-highlighter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -67,7 +68,7 @@ export default function IDEPage() {
             </div>
 
             {/* Fake IDE Screenshot */}
-            <div className="relative w-full aspect-[4/3] bg-[#050505] border border-[#333333] rounded-sm overflow-hidden shadow-2xl flex flex-col group">
+            <div className="relative z-10 w-full aspect-[4/3] bg-[#050505] border border-[#333333] rounded-sm overflow-hidden shadow-2xl flex flex-col group">
               {/* Mac-style Top Bar */}
               <div className="h-10 bg-[#0a0a0a] border-b border-[#333333] flex items-center px-4 justify-between">
                 <div className="flex gap-2">
@@ -94,9 +95,7 @@ export default function IDEPage() {
                 </div>
                 {/* Editor Area */}
                 <div className="flex-1 bg-[#050505] p-6 overflow-hidden relative">
-                  <pre className="font-mono text-sm leading-relaxed whitespace-pre font-light text-[#888888]">
-                    <code>{codeContent}</code>
-                  </pre>
+                  <CodeHighlighter code={codeContent} language="rust" className="text-[#888888]" />
                   <div className="absolute w-[2px] h-4 bg-primary top-[11.2rem] left-[5.5rem] animate-pulse"></div>
                 </div>
               </div>

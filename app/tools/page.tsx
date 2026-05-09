@@ -2,6 +2,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import Beams from "@/components/ui/beams";
+import { CodeHighlighter } from "@/components/ui/code-highlighter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -91,8 +92,8 @@ export default function ToolsPage() {
                 View Full Docs
               </button>
             </div>
-            <div className="w-full md:w-1/2 bg-[#050505] border border-[#2a2a2a] p-6 font-mono text-sm overflow-x-auto text-[#aaaaaa]">
-              <pre className="leading-relaxed"><code>{sdkCode}</code></pre>
+            <div className="w-full md:w-1/2 bg-[#050505] border border-[#2a2a2a] p-6 overflow-x-auto text-[#aaaaaa]">
+              <CodeHighlighter code={sdkCode} language="typescript" />
             </div>
           </section>
         </main>

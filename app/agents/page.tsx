@@ -2,6 +2,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import Beams from "@/components/ui/beams";
+import { CodeHighlighter } from "@/components/ui/code-highlighter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,6 +12,27 @@ export const metadata: Metadata = {
   openGraph: { title: "DeepNerd Agents — Autonomous Operators", description: "Agents that write, review, test, and deploy code without human intervention.", url: "https://deepnerd.tech/agents", siteName: "DeepNerd", type: "website" },
   twitter: { card: "summary_large_image", title: "DeepNerd Agents", description: "Autonomous operators for code — not chatbots.", creator: "@deepnerdai" },
 };
+
+const agentSdkCode = `// Initialize the DeepNerd Client
+const { DeepNerd } = require('deepnerd-sdk');
+
+const agent = new DeepNerd({
+  apiKey: process.env.DEEPNERD_API_KEY,
+  environment: 'production'
+});
+
+// Dispatch a task
+const task = await agent.run({
+  objective: "Migrate legacy database to new schema",
+  context: {
+    source: "db://legacy_cluster",
+    target: "db://new_cluster_v2"
+  },
+  autonomous: true,
+  verify: true
+});
+
+console.log(task.status); // 'COMPLETED'`;
 
 export default function AgentsPage() {
   return (
@@ -112,27 +134,8 @@ export default function AgentsPage() {
           <section className="py-12 px-6 max-w-4xl mx-auto w-full border-b border-[#2a2a2a]">
             <div className="flex flex-col gap-4">
               <h2 className="font-h2 text-h2 text-white">Integrate in minutes</h2>
-              <div className="bg-[#050505] border border-[#2a2a2a] rounded-sm p-6 font-mono text-sm">
-                <pre><code className="text-grey">{`// Initialize the DeepNerd Client
-const { DeepNerd } = require('deepnerd-sdk');
-
-const agent = new DeepNerd({
-  apiKey: process.env.DEEPNERD_API_KEY,
-  environment: 'production'
-});
-
-// Dispatch a task
-const task = await agent.run({
-  objective: "Migrate legacy database to new schema",
-  context: {
-    source: "db://legacy_cluster",
-    target: "db://new_cluster_v2"
-  },
-  autonomous: true,
-  verify: true
-});
-
-console.log(task.status); `}<span className="text-white">{`// 'COMPLETED'`}</span></code></pre>
+              <div className="bg-[#050505] border border-[#2a2a2a] rounded-sm p-6 overflow-hidden">
+                <CodeHighlighter code={agentSdkCode} language="javascript" />
               </div>
             </div>
           </section>

@@ -78,9 +78,11 @@ function extendMaterial<T extends THREE.Material = THREE.Material>(
 }
 
 const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => (
-  <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full relative" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}>
-    {children}
-  </Canvas>
+  <div className="absolute inset-0 z-0 pointer-events-none w-full h-full">
+    <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full">
+      {children}
+    </Canvas>
+  </div>
 );
 
 const hexToNormalizedRGB = (hex: string): [number, number, number] => {
