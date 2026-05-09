@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import Beams from "@/components/ui/beams";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -36,8 +37,9 @@ export default function ToolsPage() {
         <Navbar />
         <main className="flex-grow flex flex-col w-full max-w-[1440px] mx-auto">
           {/* Hero Section */}
-          <section className="w-full px-6 py-[120px] md:py-[160px] flex flex-col items-start border-b border-[#2a2a2a]">
-            <div className="max-w-3xl">
+          <section className="relative w-full px-6 py-[120px] md:py-[160px] flex flex-col items-start border-b border-[#2a2a2a] overflow-hidden">
+            <Beams />
+            <div className="relative z-10 max-w-3xl">
               <h1 className="font-h1 text-h1 text-white mb-6">Tools built for execution.<br/>Not extraction.</h1>
               <p className="font-body-lg text-body-lg text-[#888888] max-w-2xl">Not another MCP wrapper. Primitives that agents use to act — not just read.</p>
             </div>

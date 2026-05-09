@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import Beams from "@/components/ui/beams";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function AgentsPage() {
         <main className="flex-grow flex flex-col">
           {/* Hero Section */}
           <section className="relative w-full min-h-[716px] flex items-center justify-center border-b border-[#2a2a2a] overflow-hidden px-6">
-            <div className="absolute inset-0 z-0 opacity-30 bg-center bg-cover" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvf3nvxh_V6o-vXoarAc_GnVFxB8E_Kop8a0yK1y8us9YEpuezBsTpWbX7vIAGMQeEk5-vVafHmpj_yb1Y5ZVn30d1BhXRhZgqJi36FxsyWwvcOB4p-uVRha_ncSdDK1a0aDI4EebHc-8_M-jum39DqA_PPopjZ0LfL5PwD9FLGISwGRUsiMJaNxu9XOQ5ciN7in0CO-qC_2kiEgzVnsLiBA3Gc14KIJh8C-TSN-Ramom6K1wfga8ktFAGHSk6jEDdMd4pscG4-ys')" }}></div>
+            <Beams />
             <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
               <h1 className="font-h1 text-h1 text-white">Agents that operate.<br/>Not just answer.</h1>
               <p className="font-body-lg text-body-lg text-grey max-w-2xl">DeepNerd agents click, navigate, execute and verify — at computer speed. No UI needed.</p>

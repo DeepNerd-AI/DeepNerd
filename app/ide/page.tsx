@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import Beams from "@/components/ui/beams";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -43,8 +44,9 @@ export default function IDEPage() {
         <Navbar />
         <main className="flex-grow">
           {/* Hero Section */}
-          <section className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-32 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="flex flex-col items-start gap-8">
+          <section className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-32 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center overflow-hidden">
+            <Beams />
+            <div className="relative z-10 flex flex-col items-start gap-8">
               <div className="inline-flex items-center px-3 py-1 bg-surface-container-high border border-[#333333] font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">
                 <span className="w-2 h-2 rounded-full bg-primary mr-2"></span> Beta v0.9.4 Live
               </div>

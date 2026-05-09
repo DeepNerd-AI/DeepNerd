@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/ui/navbar";
 import { DeepNerdFooter } from "@/components/ui/flickering-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import Beams from "@/components/ui/beams";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,8 +19,10 @@ export default function AutomationPage() {
         <Navbar />
         <main className="flex-grow w-full max-w-[1200px] mx-auto px-6 py-12 flex flex-col gap-32">
           {/* Hero Section */}
-          <section className="flex flex-col items-start pt-20 pb-12 w-full max-w-4xl">
-            <h1 className="font-h1 text-h1 text-white mb-6">If it repeats, it runs itself.</h1>
+          <section className="relative flex flex-col items-start pt-20 pb-12 w-full max-w-4xl overflow-hidden">
+            <Beams />
+            <div className="relative z-10 flex flex-col items-start w-full">
+              <h1 className="font-h1 text-h1 text-white mb-6">If it repeats, it runs itself.</h1>
             <p className="font-body-lg text-body-lg text-grey mb-10 max-w-2xl">Connect your stack. Define the trigger. Walk away. DeepNerd Automation handles the glue logic with sub-millisecond latency.</p>
             <div className="flex gap-4">
               <button className="bg-white text-black px-6 py-3 font-body-md font-bold uppercase tracking-tight hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all duration-150">Build a Pipeline</button>

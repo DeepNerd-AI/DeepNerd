@@ -15,6 +15,9 @@ import {
 import { redirect } from "next/navigation"
 import { createClient } from "@/utils/supabase/server"
 import { Navbar } from "@/components/ui/navbar"
+import { HeroSection } from "@/components/ui/hero-section"
+
+import { CoreInfrastructure } from "@/components/ui/core-infrastructure"
 
 export default async function Page(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const searchParams = props.searchParams ? await props.searchParams : undefined;
@@ -27,28 +30,12 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 
   return (
     <SmoothScroll>
-      <div className="bg-background text-on-background font-body-lg text-body-lg antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+      <div className="bg-background text-foreground font-sans antialiased selection:bg-white/20 selection:text-white min-h-screen flex flex-col">
         {/* converted content */}
         
 <Navbar />
-<main className="flex-grow flex flex-col w-full max-w-[1440px] mx-auto border-x border-zinc-800">
-{/* Hero Section */}
-<section className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center px-6 md:px-12 py-12 noise-bg border-b border-zinc-800" style={{ backgroundColor: '#050505' }}>
-<Silk speed={5} scale={1} color="#2A2A2A" noiseIntensity={1.5} rotation={0} className="absolute inset-0 z-0 bg-transparent opacity-60 mix-blend-screen" />
-<div className="relative z-10 max-w-4xl flex flex-col items-center gap-8">
-<h1 className="text-[48px] md:text-[72px] lg:text-[84px] leading-[0.9] font-black tracking-tighter text-white uppercase">We're not<br/>building for<br/>humans.</h1>
-<p className="font-body-lg text-body-lg text-zinc-400 max-w-2xl text-lg md:text-xl mx-auto">
-                    DeepNerd builds the infrastructure AI agents actually need — not prettier dashboards. Machine-readable. Agent-operable. Autonomous by design.</p>
-<div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
-<Link className="bg-primary text-on-primary px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2" href="/signup">
-                        INIT WORKSPACE <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</Link>
-<Link className="bg-black text-white border border-zinc-600 px-8 py-4 font-technical-label text-technical-label uppercase tracking-widest hover:bg-zinc-900 hover:border-white transition-colors flex items-center justify-center" href="/manifesto">
-                        READ THE VISION
-                    </Link>
-</div>
-</div>
-</section>
+<main className="flex-grow flex flex-col w-full mx-auto">
+<HeroSection />
 
 {/* Site Goals Section */}
 <section className="relative flex flex-col justify-center items-center text-left px-6 md:px-12 py-12 md:py-24 border-b border-zinc-800">
@@ -64,69 +51,9 @@ export default async function Page(props: { searchParams?: Promise<{ [key: strin
 <span className="">TERMINAL</span>
 <span className="">LINUX</span>
 </section>
+
 {/* What We Build Section */}
-<section className="py-24 px-6 md:px-12 noise-bg border-b border-zinc-800" style={{ backgroundColor: '#000000' }}>
-<div className="mb-16">
-<h2 className="font-headline-lg text-headline-lg text-white mb-4">Core Infrastructure</h2>
-<div className="h-px w-full bg-zinc-800 mt-8 relative">
-<div className="absolute top-0 left-0 w-24 h-px bg-white"></div>
-</div>
-</div>
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-zinc-800">
-{/* Card 1 */}
-<Link href="/ide" className="bg-black p-8 border-b md:border-r lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
-<div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">01 / Vault IDE</div>
-<div>
-<h3 className="font-headline-md text-headline-md text-white mb-2">Agent Vault IDE</h3>
-<p className="font-body-md text-body-md text-zinc-400">Headless development environment optimized for autonomous code generation and validation loops.</p>
-</div>
-<span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="terminal">terminal</span>
-</Link>
-{/* Card 2 */}
-<Link href="/agents" className="bg-black p-8 border-b lg:border-r lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
-<div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">02 / AGENTS</div>
-<div>
-<h3 className="font-headline-md text-headline-md text-white mb-2">Autonomous Workers</h3>
-<p className="font-body-md text-body-md text-zinc-400">Pre-configured operational nodes capable of executing complex multi-step reasoning tasks.</p>
-</div>
-<span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="smart_toy">smart_toy</span>
-</Link>
-{/* Card 3 */}
-<Link href="/automation" className="bg-black p-8 border-b md:border-r lg:border-r-0 lg:border-b-0 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group">
-<div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">03 / AUTOMATION</div>
-<div>
-<h3 className="font-headline-md text-headline-md text-white mb-2">Pipeline CI/CD</h3>
-<p className="font-body-md text-body-md text-zinc-400">Self-healing deployment pipelines that automatically detect and patch structural vulnerabilities.</p>
-</div>
-<span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="account_tree">account_tree</span>
-</Link>
-{/* Card 4 */}
-<Link href="/tools" className="bg-black p-8 border-b md:border-b-0 md:border-r border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group lg:border-t">
-<div className="font-code-sm text-code-sm text-zinc-500 mb-4 group-hover:text-white transition-colors">04 / TOOLS</div>
-<div>
-<h3 className="font-headline-md text-headline-md text-white mb-2">Native Toolchain</h3>
-<p className="font-body-md text-body-md text-zinc-400">Standardized API connectors and shell utilities designed exclusively for non-human interaction.</p>
-</div>
-<span className="material-symbols-outlined absolute top-8 right-8 text-zinc-700 group-hover:text-white transition-colors" data-icon="build">build</span>
-</Link>
-{/* Card 5 */}
-<div className="bg-[#050505] p-8 border-zinc-800 hover-bento transition-all duration-200 flex flex-col h-64 justify-between relative group lg:border-t">
-<div className="font-code-sm text-code-sm text-zinc-600 mb-4">05 / MODEL</div>
-<div>
-<h3 className="font-headline-md text-headline-md text-zinc-500 mb-2">[INITIALIZING]</h3>
-<p className="font-body-md text-body-md text-zinc-600">Awaiting parameter synchronization. Core logic model deployment scheduled.</p>
-</div>
-<div className="absolute top-8 right-8 px-2 py-1 border border-zinc-700 text-zinc-500 font-technical-label text-[10px] uppercase">Soon</div>
-</div>
-{/* Empty filler for grid */}
-<div className="bg-black p-8 border-l border-zinc-800 lg:border-t hidden lg:block overflow-hidden relative">
-<div className="absolute inset-0 p-4 font-code-sm text-[10px] text-[#1a1a1a] leading-tight break-all">
-                        01000100 01000101 01000101 01010000 01001110 01000101 01010010 01000100 00100000 01010011 01011001 01010011 01010100 01000101 01001101 00100000 01001111 01001110 01001100 01001001 01001110 01000101 00001010
-                        01000100 01000101 01000101 01010000 01001110 01000101 01010010 01000100 00100000 01010011 01011001 01010011 01010100 01000101 01001101 00100000 01001111 01001110 01001100 01001001 01001110 01000101 00001010
-                    </div>
-</div>
-</div>
-</section>
+<CoreInfrastructure />
 {/* Agent Manifesto Section */}
 <section className="py-32 px-6 md:px-12 bg-black border-b border-zinc-800 relative flex items-center justify-center">
 <div className="absolute left-6 top-1/2 -translate-y-1/2 font-code-sm text-[10px] text-zinc-600 w-32 hidden lg:block">
